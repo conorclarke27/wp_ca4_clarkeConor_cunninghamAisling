@@ -1,1 +1,1 @@
-Edited in README branch
+Edited in .htaccess branch 

@@ -87,12 +87,28 @@
     private $params;
     private $headers;
     private $url;
+    private $jsonBodyData;
 
     public function __construct() {
-      $this->basePath  = dirname($_SERVER['PHP_SELF']);
-      $this->params    = NULL;
-      $this->headers   = NULL;
-      $this->url       = $this->getLocalPath();
+      $this->basePath     = dirname($_SERVER['PHP_SELF']);
+      $this->params       = NULL;
+      $this->headers      = NULL;
+      $this->url          = $this->getLocalPath();
+      $this->jsonBodyData = $this->parseJsonBodyData();
+    }
+
+
+    private function parseJsonBodyData()
+    {
+      $jsonData = file_get_contents('php://input');
+      $jsonData = $jsonData !== FALSE ? json_decode($jsonData, TRUE) : NULL;
+      return $jsonData;
+
+    }
+
+    public function jsonBodyData()
+    {
+      return $this->jsonBodyData;
     }
 
     /**`

@@ -1,10 +1,10 @@
 <?php class Coffees {
 
-private coffee_id;
-private coffee_name;
-private supplier_id;
-private price;
-private quantity;
+private $coffee_id;
+private $coffee_name;
+private $supplier_id;
+private $price;
+private $quantity;
 
 public function __construct($args) {
   if (!is_array($args)) {

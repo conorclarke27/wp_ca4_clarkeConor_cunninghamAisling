@@ -54,7 +54,7 @@ public function setCoffeeName($coffee_name) {
   if(!preg_match('/^[a-z]{3,55}$/i', $coffee_name)) {
     throw new Exception('Coffee name does not match expected pattern');
   }
-  $this->coffee_name = $name;
+  $this->coffee_name = $coffee_name;
 }
 
 public function getSupplierId() {

@@ -5,20 +5,20 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title><?= $locals['pageTitle'] ?? 'Default Title' ?></title>
 
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-         <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <script src="./assets/js/jquery.js"></script> 
+        <script src="./assets/js/bootstrap.min.js"></script>
         </head>
     <body>
-        
 
-        <div class ="navbar navbar-inverse navbar-fixed-top">
+
+<div class ="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand">Coffee Cart</a>
                 </div>
                 <ul class ="nav navbar-nav">
-                    <li> <a href=""><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li> <a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                     <li> <a href="#"><span class="glyphicon glyphicon-modal-window"></span>Products</a></li>
                     <li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search"></li>
                     <li style="top:10px;left:20px;"><input type="submit" class="btn btn-primary" id="search_btn"></li>
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-
+        
         <div class='container'>
             <?= \Rapid\Renderer::VIEW_PLACEHOLDER ?>
 

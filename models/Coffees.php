@@ -2,7 +2,7 @@
 
 private $coffee_id;
 private $coffee_name;
-private $supplier_id;
+private $supplier_name;
 private $price;
 private $quantity;
 
@@ -13,7 +13,7 @@ public function __construct($args) {
 
   $this->setCoffeeId($args['coffee_id'] ?? NULL);
   $this->setCoffeeName($args['coffee_name'] ?? 'Untitled Coffee Name');
-  $this->setSupplierId($args['supplier_id'] ?? NULL);
+  $this->setSupplierName($args['supplier_name'] ?? NULL);
   $this->setPrice($args['price'] ?? NULL);
   $this->setQuantity($args['quantity'] ?? NULL);
   
@@ -57,20 +57,20 @@ public function setCoffeeName($coffee_name) {
   $this->coffee_name = $coffee_name;
 }
 
-public function getSupplierId() {
-  return $this->supplier_id;
+public function getSupplierName() {
+  return $this->supplier_name;
 }
 
-public function setSupplierId($supplier_id) {
-  if($supplier_id === NULL) {
-    $this->supplier_id = NULL;
+public function setSupplierName($supplier_name) {
+  if($supplier_name === NULL) {
+    $this->supplier_name = NULL;
     return;
   }
 
-  if(! ModelUtils::isIdValid($supplier_id)) {
-    throw new Exception('Supplier ID for Coffee object must be positive numeric');
+  if(! ModelUtils::isIdValid($supplier_name)) {
+    throw new Exception('Supplier Name for Coffee object must be positive numeric');
   }
-  $this->supplier_id = $supplier_id;
+  $this->supplier_name = $supplier_name;
 }
 
 public function getPrice() {
@@ -112,10 +112,10 @@ public function insert($pdo) {
 
   if($this->coffee_id === NULL) {
     // Insert
-    $stt = $pdo->prepare('INSERT INTO coffees (coffee_name, supplier_id, price, quantity) VALUES (:coffee_name, :supplier_id, :price, :quantity)');
+    $stt = $pdo->prepare('INSERT INTO coffees (coffee_name, supplier_name, price, quantity) VALUES (:coffee_name, :supplier_name, :price, :quantity)');
     $stt->execute([
       'coffee_name' => $this->getCoffeeName(),
-      'supplier_id' => $this->getSupplierId(),
+      'supplier_name' => $this->getSupplierId(),
       'price'       => $this->getPrice(),
       'quantity'    => $this->getQuantity()
     ]);
@@ -135,11 +135,11 @@ public function update($pdo) {
     throw new Exception('Invalid PDO object for Coffee update');
   }
 
-  $stt = $pdo->prepare('UPDATE coffees SET coffee_name=:coffee_name, supplier_id=:supplier_id, price=:price, quantity=:quantity WHERE coffee_id=:coffee_id LIMIT 1');
+  $stt = $pdo->prepare('UPDATE coffees SET coffee_name=:coffee_name, supplier_name=:supplier_name, price=:price, quantity=:quantity WHERE coffee_id=:coffee_id LIMIT 1');
   $stt->execute([
     'coffee_id'   => $this->getCoffeeId(),
     'coffee_name' => $this->getCoffeeName(),
-    'supplier_id' => $this->getSupplierId(),
+    'supplier_name' => $this->getSupplierName(),
     'price'       => $this->getPrice(),
     'quantity'    => $this->getQuantity()
   ]);
@@ -179,11 +179,12 @@ public function delete($pdo) {
 
 public static function findAll($db) {
 
-  if(!($db instanceof PDO)) {
+  if(!($db instanceof PDO)) 
+  {
     throw new Exception('Invalid PDO object for Coffee findAll');
   }
 
-  $stt = $db->prepare('SELECT coffee_id, coffee_name, supplier_id, price, quantity FROM coffees');
+  $stt = $db->prepare('SELECT coffee_id, coffee_name, supplier_name, price, quantity FROM coffees');
   $stt->execute();
 
   $coffees = [];
@@ -209,7 +210,7 @@ public static function findOneById($coffee_id, $db) {
     throw new Exception('Coffee ID for findOneById must be positive numeric');
   }
 
-  $stt = $db->prepare('SELECT coffee_id, coffee_name, supplier_id, price, quantity FROM coffees WHERE coffee_id = :coffee_id LIMIT 1');
+  $stt = $db->prepare('SELECT coffee_id, coffee_name, supplier_name, price, quantity FROM coffees WHERE coffee_id = :coffee_id LIMIT 1');
   $stt->execute([
     'coffee_id' => $coffee_id
   ]);

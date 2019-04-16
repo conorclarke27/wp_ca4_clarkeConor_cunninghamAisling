@@ -74,12 +74,12 @@
 
     </body>
 </div>
-<div>
-    <footer>
-        <p class="copyright">
-            &copy; Coffee Cart  <?php echo date("Y"); ?>
-        </p>
-    </footer>
+<div class ="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-footer">
+                    <a class="navbar-brand navbar-right">&copy; Coffee Cart 2019</a>
+                </div>
+                </div>
 </div>
 
 

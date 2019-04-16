@@ -35,7 +35,7 @@ public function setCoffeeId($coffee_id) {
     return;
   }
 
-  if(!Model::isIdValid($coffee_id)) {
+  if(! ModelUtils::isIdValid($coffee_id)) {
     throw new Exception('Coffee ID for Coffee object must be positive numeric');
   }
   $this->coffee_id = $coffee_id;
@@ -67,7 +67,7 @@ public function setSupplierId($supplier_id) {
     return;
   }
 
-  if(!Model::isIdValid($supplier_id)) {
+  if(! ModelUtils::isIdValid($supplier_id)) {
     throw new Exception('Supplier ID for Coffee object must be positive numeric');
   }
   $this->supplier_id = $supplier_id;
@@ -205,7 +205,7 @@ public static function findOneById($coffee_id, $db) {
     throw new Exception('Invalid PDO object for Coffee findOneById');
   }
 
-  if(!Model::isIdValid($coffee_id)) {
+  if(!  ModelUtils::isIdValid($coffee_id)) {
     throw new Exception('Coffee ID for findOneById must be positive numeric');
   }
 

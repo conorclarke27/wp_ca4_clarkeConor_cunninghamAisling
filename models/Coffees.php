@@ -1,3 +1,5 @@
+<?php require_once('./lib/utils/ModelUtils.php');?>
+
 <?php class Coffees {
 
 private $coffee_id;
@@ -35,9 +37,9 @@ public function setCoffeeId($coffee_id) {
     return;
   }
 
-  if(! ModelUtils::isIdValid($coffee_id)) {
-    throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  }
+  // if(! (ModelUtils::isValidId($coffee_id))) {
+  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
+  // }
   $this->coffee_id = $coffee_id;
 }
 
@@ -51,9 +53,9 @@ public function setCoffeeName($coffee_name) {
     return;
   }
 
-  if(!preg_match('/^[a-z]{3,55}$/i', $coffee_name)) {
-    throw new Exception('Coffee name does not match expected pattern');
-  }
+  // if(!preg_match('/^[a-z]{3,55}$/i', $coffee_name)) {
+  //   throw new Exception('Coffee name does not match expected pattern');
+  // }
   $this->coffee_name = $coffee_name;
 }
 
@@ -67,9 +69,9 @@ public function setSupplierName($supplier_name) {
     return;
   }
 
-  if(! ModelUtils::isIdValid($supplier_name)) {
-    throw new Exception('Supplier Name for Coffee object must be positive numeric');
-  }
+  // if(! ModelUtils::isValidId($supplier_name)) {
+  //   throw new Exception('Supplier Name for Coffee object must be positive numeric');
+  // }
   $this->supplier_name = $supplier_name;
 }
 
@@ -190,7 +192,7 @@ public static function findAll($db) {
   $coffees = [];
 
   foreach($stt->fetchAll() as $row) {
-    array_push($coffees, new Coffee($row));
+    array_push($coffees, new Coffees($row));
   }
 
   return $coffees;
@@ -206,7 +208,7 @@ public static function findOneById($coffee_id, $db) {
     throw new Exception('Invalid PDO object for Coffee findOneById');
   }
 
-  if(!  ModelUtils::isIdValid($coffee_id)) {
+  if(!  ModelUtils::isValidId($coffee_id)) {
     throw new Exception('Coffee ID for findOneById must be positive numeric');
   }
 

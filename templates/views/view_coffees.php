@@ -15,9 +15,7 @@
 
     <ul>
         <?php
-        foreach ($locals['viewAllCoffees'] as $coffee) {
-
-            $date = new DateTime($coffee['dateOfRelease']);
+        foreach ($coffees['viewAllCoffees'] as $coffee) {
             ?>
             <tr>
                 <td><?= $coffee['coffee_ID'] ?></td>

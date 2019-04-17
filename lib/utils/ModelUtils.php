@@ -1,7 +1,7 @@
 <?php class ModelUtils{
 
 public static function isValidId($id) {
-  return is_int($id) && ($id >= 1);
+  return is_int($id) && ($id >0);
 }
 
 public static function isValidNumber($num) 

@@ -52,36 +52,35 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="panel panel-info">
                         <div class="panel-heading">Products</div>
                         <div class="panel-body">
-                            <div class ="col-md-4">
-
-                                <?php
+                        <?php
                                 foreach ($locals['viewAllCoffees'] as $coffee)  {
                                     ?>
+                            <div class ="col-md-3">
+
+                                
 
                                     <div class="panel panel-info">
                                         <div class="panel-heading"><?= $coffee->getCoffeeName() ?></div>
                                         <div class="panel-body">
-                                            <img src="assets/images/kenco-smooth.jpg" class="img-thumbnail"  alt="Responsive image">
+                                            <img src="./assets/images/kenco-smooth.jpg" class="img-thumbnail"  alt="Responsive image">
                                         </div>
                                         <div class="panel-heading"><?= $coffee->getPrice() ?>
                                             <button style="float:right;" class="btn btn-danger btn-xs">Add To Cart</button>
                                         </div>
                                     </div>
+                             
                                 </div>
-                            <?php }
+                                       
+                        <?php }
                             ?>
+                            
 
                         </div>
                     </div>
-                    <div class ="panel-footer">&copy; 2019</div>
                 </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-    </div>
 </body>
 </html>

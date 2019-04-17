@@ -63,9 +63,9 @@
                                     ?>
 
                                     <div class="panel panel-info">
-                                        <div class="panel-heading"><?= $coffee->getCoffeeID() ?></div>
+                                        <div class="panel-heading"><?= $coffee->getCoffeeName() ?></div>
                                         <div class="panel-body">
-                                            <img src="images/kenco-smooth.jpg" class="img-thumbnail"  alt="Responsive image">
+                                            <img src="assets/images/kenco-smooth.jpg" class="img-thumbnail"  alt="Responsive image">
                                         </div>
                                         <div class="panel-heading"><?= $coffee->getPrice() ?>
                                             <button style="float:right;" class="btn btn-danger btn-xs">Add To Cart</button>

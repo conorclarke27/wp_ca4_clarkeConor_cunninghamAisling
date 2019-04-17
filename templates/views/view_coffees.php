@@ -15,21 +15,21 @@
 
     <ul>
         <?php
-        foreach ($coffees['viewAllCoffees'] as $coffee) {
+        foreach ($locals['viewAllCoffees'] as $coffee) {
             ?>
             <tr>
-                <td><?= $coffee['coffee_ID'] ?></td>
-                <td><?= $coffee['coffee_name'] ?></td>
-                <td><?= $coffee['supplier_name'] ?></td>
-                <td><?= $coffee['price'] ?></td>
-                <td><?= $coffee['quantity'] ?></td>
+                <td><?= $coffee->getCoffeeId() ?></td>
+                <td><?= $coffee->getCoffeeName() ?></td>
+                <td><?= $coffee->getSupplierName() ?></td>
+                <td><?= $coffee->getPrice() ?></td>
+                <td><?= $coffee->getQuantity() ?></td>
 
-                <td>
+                <!-- <td>
                     <a class='btn' href='deletecoffee?coffeeID=<?= $coffee['coffeeID'] ?>'> Delete coffee </a> 
                 </td>
                 <td>
                     <a class='btn' href='editcoffee?coffeeID=<?= $coffee['coffeeID'] ?>'> Edit coffee </a> 
-                </td>
+                </td> -->
 
             </tr>
         </ul>

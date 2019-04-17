@@ -24,12 +24,12 @@
                 <td><?= $coffee->getPrice() ?></td>
                 <td><?= $coffee->getQuantity() ?></td>
 
-                <!-- <td>
-                    <a class='btn' href='deletecoffee?coffeeID=<?= $coffee['coffeeID'] ?>'> Delete coffee </a> 
+                <td>
+                    <a class='btn' href='deletecoffee?coffeeID=<?= $coffee->getCoffeeId() ?>'> Delete coffee </a> 
                 </td>
                 <td>
-                    <a class='btn' href='editcoffee?coffeeID=<?= $coffee['coffeeID'] ?>'> Edit coffee </a> 
-                </td> -->
+                    <a class='btn' href='editcoffee?coffeeID=<?= $coffee->getCoffeeId() ?>'> Edit coffee </a> 
+                </td>
 
             </tr>
         </ul>

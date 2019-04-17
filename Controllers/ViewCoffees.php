@@ -1,7 +1,7 @@
 <?php
 
 return function($req, $res) {
-$db = new \Rapid\Database();
+$db = \Rapid\Database::getPDO();
 require('./models/Coffees.php');
 
 $coffees = Coffees::findAll($db);

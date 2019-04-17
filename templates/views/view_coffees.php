@@ -59,7 +59,7 @@
                             <div class ="col-md-4">
 
                                 <?php
-                                foreach ($coffees['viewAllCoffees'] as $coffee) {
+                                foreach ($locals['viewAllCoffees'] as $coffee)  {
                                     ?>
 
                                     <div class="panel panel-info">

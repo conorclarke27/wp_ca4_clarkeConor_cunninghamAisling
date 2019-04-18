@@ -107,25 +107,25 @@ public function setQuantity($quantity) {
  * #################################################
 */
 
-public function insert($pdo) {
+public function insert($pdo, $coffee) {
   if(!($pdo instanceof PDO)) {
     throw new Exception('Invalid PDO object for Coffee insert');
   }
 
-  if($this->coffee_id === NULL) {
+  if($coffee->getCoffeeId() === NULL) {
     // Insert
     $stt = $pdo->prepare('INSERT INTO coffees (coffee_name, supplier_name, price, quantity) VALUES (:coffee_name, :supplier_name, :price, :quantity)');
     $stt->execute([
-      'coffee_name' => $this->getCoffeeName(),
-      'supplier_name' => $this->getSupplierId(),
-      'price'       => $this->getPrice(),
-      'quantity'    => $this->getQuantity()
+      'coffee_name' => $coffee->getCoffeeName(),
+      'supplier_name' => $coffee->getSupplierName(),
+      'price'       => $coffee->getPrice(),
+      'quantity'    => $coffee->getQuantity()
     ]);
 
     $inserted = $stt->rowCount() === 1;
 
     if($inserted) {
-      $this->coffee_id = $pdo->lastInsertId();
+      $coffee->coffee_id = $pdo->lastInsertId();
     }
 
     return $inserted;

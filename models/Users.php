@@ -93,9 +93,9 @@
       return;
     }
   
-    if(!preg_match('/^[a-z]{3,55}$/i', $username)) {
-      throw new Exception('Username does not match expected pattern');
-    }
+    // if(!preg_match('/^[a-z]{3,55}$/i', $username)) {
+    //   throw new Exception('Username does not match expected pattern');
+    // }
     $this->username = $username;
   }
 
@@ -247,6 +247,29 @@
   
     return $row !== FALSE
       ? new User($row)
+      : NULL;
+  }
+  
+
+  public static function findOneByEmail($email, $db) {
+
+    if(!($db instanceof PDO)) {
+      throw new Exception('Invalid PDO object for user findOneByEmail');
+    }
+  
+    // if(! ModelUtils::isIdValid($user_id)) {
+    //   throw new Exception('user ID for findOneById must be positive numeric');
+    // }
+  
+    $stt = $db->prepare('SELECT password, email FROM users WHERE email= :email LIMIT 1');
+    $stt->execute([
+      'email' => $email
+    ]);
+  
+    $row = $stt->fetch();
+  
+    return $row !== FALSE
+      ? new Users($row)
       : NULL;
   }
   

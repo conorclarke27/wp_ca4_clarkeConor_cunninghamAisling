@@ -44,23 +44,7 @@
                         </div>
 
                     </li>
-                    <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Sign In</a>
-                        <ul class="dropdown-menu">
-                            <div style="width:300px;height:auto;">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Log in</div>
-                                    <div class="panel-heading">
-                                        <label for="email">Email</label>
-                                        <input type="email" class ="form-control" id="email" />
-                                        <label for="pass">Password</label>
-                                        <input type="password" class ="form-control" id="password" />
-                                        <p><br/></p>
-                                        <a href="#" style="color:white; list-style:none;">Forgotten Password</a>
-                                        <input type="submit" class="btn btn-success" style="float:right;" id="login" value="Login">
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
+                    <li> <a href="#" ><span class="glyphicon glyphicon-user"></span>Log In</a>
                     </li>
                     <li> <a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                 </ul>

@@ -18,6 +18,9 @@
   $app->POST('/add-orders',  'AddOrdersPost');
   $app->GET('/add-user-login',   'AddUserGet');
   $app->POST('/add-user-login',  'AddUserPost');
+  $app->GET('/add-userTypes',   'AddUserTypesGet');
+  $app->POST('/add-userTypes',  'AddUserTypesPost');
+  
 
   // Process the request
   $app->dispatch();

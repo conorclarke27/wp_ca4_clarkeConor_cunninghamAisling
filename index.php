@@ -8,8 +8,9 @@
 
   // Define some routes. Here: requests to / will be
   // processed by the controller at controllers/Home.php
-  $app->GET('/',        'Home');
-  $app->GET('/view_coffees',        'ViewCoffees');
+  $app->GET('/',              'Home');
+  $app->GET('/view-coffees',  'ViewCoffees');
+  $app->GET('/view-orders',   'ViewOrders');
 
   // Process the request
   $app->dispatch();

@@ -1,14 +1,13 @@
-<?php
+<?php return function($req, $res) {
 
-return function($req, $res) {
-$db = \Rapid\Database::getPDO();
-require('./models/Coffees.php');
+    $db = \Rapid\Database::getPDO();
+    require('./models/Coffees.php');
 
-$coffees = Coffees::findAll($db);
+    $coffees = Coffees::findAll($db);
 
-$res->render('main', 'view_coffees', [
-    'pageTitle' => 'View Coffees',
-    'viewAllCoffees' => $coffees
-]);
-}
-?>
+    $res->render('main', 'view-coffees', [
+        'pageTitle' => 'View Coffees',
+        'viewAllCoffees' => $coffees
+    ]);
+    
+} ?>

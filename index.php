@@ -16,10 +16,12 @@
   $app->POST('/add-coffees',  'AddCoffeesPost');
   $app->GET('/add-orders',   'AddOrdersGet');
   $app->POST('/add-orders',  'AddOrdersPost');
-  $app->GET('/add-user-login',   'AddUserGet');
-  $app->POST('/add-user-login',  'AddUserPost');
+  $app->GET('/add-user',   'AddUserGet');
+  $app->POST('/add-user',  'AddUserPost');
   $app->GET('/add-userTypes',   'AddUserTypesGet');
   $app->POST('/add-userTypes',  'AddUserTypesPost');
+  $app->GET('/user-login',  'LogInGet');
+  $app->POST('/user-login',  'LogInPost');
   
 
   // Process the request

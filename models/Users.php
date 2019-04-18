@@ -1,7 +1,7 @@
 <?php class Users {
 
   private $user_id;
-  private $user_type;
+  private $type_id;
   private $username;
   private $password;
   private $email;
@@ -19,7 +19,7 @@
     }
   
     $this->setUserId($args['user_id'] ?? NULL);
-    $this->setUserType($args['user_type'] ?? NULL);
+    $this->setUserType($args['type_id'] ?? NULL);
     $this->setUsername($args['username'] ?? 'Untitled User');
     $this->setPassword($args['password'] ?? NULL);
     $this->setEmail($args['email'] ?? NULL);
@@ -39,7 +39,7 @@
   }
 
   public function getUserType() {
-    return $this->user_type;
+    return $this->type_id;
   }
 
   public function getUsername() {
@@ -70,21 +70,21 @@
       $this->user_id = NULL;
       return;
     }
-    if(! ModelUtils::isValidId($user_id)) {
-      throw new Exception('User ID for a User object must be positive numeric');
-    }
+    // if(! ModelUtils::isValidId($user_id)) {
+    //   throw new Exception('User ID for a User object must be positive numeric');
+    // }
     $this->user_id = $user_id;
   }
 
-  public function setUserType($user_type) {
-    if($user_type === NULL) {
-      $this->user_type = NULL;
+  public function setUserType($type_id) {
+    if($type_id === NULL) {
+      $this->type_id = NULL;
       return;
     }
-    if(! ModelUtils::isValidId($user_type)) {
-      throw new Exception('User Type for a User object must be positive numeric');
-    }
-    $this->user_type = $user_type;
+    // if(! ModelUtils::isValidId($type_id)) {
+    //   throw new Exception('User Type for a User object must be positive numeric');
+    // }
+    $this->type_id = $type_id;
   }
 
   public function setUserName($username) {
@@ -142,9 +142,9 @@
   
     if($this->user_id === NULL) {
       // Insert
-      $stt = $pdo->prepare('INSERT INTO users (user_type,username,password,email,supplier_name) VALUES (:user_type, :username, :password, :email,:supplier_name)');
+      $stt = $pdo->prepare('INSERT INTO users (type_id,username,password,email,supplier_name) VALUES (:type_id, :username, :password, :email,:supplier_name)');
       $stt->execute([
-        'user_type' => $this->getUserType(),
+        'type_id' => $this->getUserType(),
         'username' => $this->getUsername(),
         'password'       => $this->getPassword(),
         'email'    => $this->getEmail(),
@@ -166,9 +166,9 @@
       throw new Exception('Invalid PDO object for User update');
     }
   
-    $stt = $pdo->prepare('UPDATE users SET user_type=:user_type, username=:username, password=:password, email=:email, supplier_name=:supplier_name WHERE user_id=:user_id LIMIT 1');
+    $stt = $pdo->prepare('UPDATE users SET type_id=:type_id, username=:username, password=:password, email=:email, supplier_name=:supplier_name WHERE user_id=:user_id LIMIT 1');
     $stt->execute([
-      'user_type' => $this->getUserType(),
+      'type_id' => $this->getUserType(),
       'username' => $this->getUsername(),
       'password'       => $this->getPassword(),
       'email'    => $this->getEmail(),
@@ -215,20 +215,16 @@
       throw new Exception('Invalid PDO object for User findAll');
     }
 
-    $stt = $db->prepare('SELECT user_id, user_type, username, password, email, supplier_name FROM users');
+    $stt = $db->prepare('SELECT user_id, type_id, username, password, email, supplier_name FROM users');
     $stt->execute();
 
     $users = [];
 
     foreach($stt->fetchAll() as $row) {
-      array_push($users, new User($row));
+      array_push($users, new Users($row));
     }
 
     return $users;
-
-    // return array_map(function($row){
-    //   return new User($row);
-    // }, $query->fetchAll());
   }
 
 
@@ -238,11 +234,11 @@
       throw new Exception('Invalid PDO object for user findOneById');
     }
   
-    if(! ModelUtils::isIdValid($user_id)) {
-      throw new Exception('user ID for findOneById must be positive numeric');
-    }
+    // if(! ModelUtils::isIdValid($user_id)) {
+    //   throw new Exception('user ID for findOneById must be positive numeric');
+    // }
   
-    $stt = $db->prepare('SELECT user_id, user_type,username,password, email, supplier_name FROM users WHERE user_id = :user_id LIMIT 1');
+    $stt = $db->prepare('SELECT user_id, type_id,username,password, email, supplier_name FROM users WHERE user_id = :user_id LIMIT 1');
     $stt->execute([
       'user_id' => $user_id
     ]);

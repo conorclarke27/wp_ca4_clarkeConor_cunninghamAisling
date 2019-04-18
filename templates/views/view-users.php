@@ -11,35 +11,40 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="panel panel-info">
                         <div class="panel-heading">Users</div>
                         <div class="panel-body">
                             <?php foreach ($locals['viewAllUsers'] as $user) { ?>
-                                <div class ="col-md-3">
+                                <div class ="col-md-5">
                                     <div class="panel panel-info">
-                                        <div class="panel-heading"><?= $user->getUsername() ?></div>
+                                        <div class="panel-heading">User: <?= $user->getUsername()?></div>
                                         <div class="panel-body">
-                                            <div class="panel-heading"><?= $user->getUserType() ?></div>
-                                            <div class="panel-heading"><?= $user->getEmail() ?></div>
-                                            <div class="panel-heading"><?= $user->getSupplier_Name() ?></div>
+                                            <div class="panel-heading">User Type: <?=  $user->getUserType() ?></div>
+                                            <div class="panel-heading">Email: <?= $user->getEmail() ?></div>
+                                            <div class="panel-heading">Supplier:  <?=$user->getSupplier_Name() ?></div>
                                         </div>
-                                        <button style="float:left;" class="btn btn-danger btn-xs">Edit User</button>
-                                        <button style="float:right;" class="btn btn-danger btn-xs">Delete User</button>
+                                        <div class="panel-heading" style="height:40px;">
+                                            <button style="float:left;" class="btn btn-danger btn-xs">Edit User</button>
+                                            <button style="float:right;" class="btn btn-danger btn-xs">Delete User</button>
                                         </div>
                                     </div>
-
                                 </div>
-
                             <?php }
                             ?>
 
-
                         </div>
+
                     </div>
+
+
+
                 </div>
+
+
                 <div class="col-md-1"></div>
-                <div class="col-md-1"></div>
+
             </div>
+        </div>
     </body>
 </html>

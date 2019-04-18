@@ -134,27 +134,27 @@
      */
 
 
-  public function insert($pdo) {
+  public function insert($pdo,$user) {
 
     if(!($pdo instanceof PDO)) {
       throw new Exception('Invalid PDO object for User insert');
     }
   
-    if($this->user_id === NULL) {
+    if($user->user_id === NULL) {
       // Insert
       $stt = $pdo->prepare('INSERT INTO users (type_id,username,password,email,supplier_name) VALUES (:type_id, :username, :password, :email,:supplier_name)');
       $stt->execute([
-        'type_id' => $this->getUserType(),
-        'username' => $this->getUsername(),
-        'password'       => $this->getPassword(),
-        'email'    => $this->getEmail(),
-        'supplier_name' => $this->getSupplier_Name()
+        'type_id' => $user->getUserType(),
+        'username' => $user->getUsername(),
+        'password'       => $user->getPassword(),
+        'email'    => $user->getEmail(),
+        'supplier_name' => $user->getSupplier_Name()
       ]);
   
       $inserted = $stt->rowCount() === 1;
   
       if($inserted) {
-        $this->user_id = $pdo->lastInsertId();
+        $user->user_id = $pdo->lastInsertId();
       }
   
       return $inserted;

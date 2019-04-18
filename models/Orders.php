@@ -75,23 +75,23 @@ public function setCoffeeID($coffee_id) {
  * #################################################
 */
 
-public function insert($pdo) {
+public function insert($pdo, $order) {
   if(!($pdo instanceof PDO)) {
     throw new Exception('Invalid PDO object for Coffee_Order insert');
   }
+  
+  if($order->getOrderID() === NULL) {
 
-  if($this->order_id === NULL) {
-
-    $stt = $pdo->prepare('INSERT INTO coffee_orders (user_id, coffee_id) VALUES (:user_id, coffee_id)');
+    $stt = $pdo->prepare('INSERT INTO coffee_orders (user_id, coffee_id) VALUES (:user_id, :coffee_id)');
     $stt->execute([
-      'user_id' => $this->getUserID(),
-      'coffee_id' => $this->getCoffeeID()
+      'user_id' => $order->getUserID(),
+      'coffee_id' => $order->getCoffeeID()
     ]);
 
     $inserted = $stt->rowCount() === 1;
 
     if($inserted) {
-      $this->order_id = $pdo->lastInsertId();
+      $order->order_id = $pdo->lastInsertId();
     }
 
     return $inserted;

@@ -1,4 +1,4 @@
-<?php class Coffee_Orders {
+<?php class Orders {
 
 private $order_id;
 private $user_id;
@@ -31,9 +31,9 @@ public function setOrderID($order_id) {
     return;
   }
 
-  if(!ModelUtils::isIdValid($order_id)) {
-    throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  }
+  // if(!ModelUtils::isIdValid($order_id)) {
+  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
+  // }
   $this->order_id = $order_id;
 }
 
@@ -47,9 +47,9 @@ public function setUserID($user_id) {
     return;
   }
 
-  if(!ModelUtils::isIdValid($user_id)) {
-    throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  }
+  // if(!ModelUtils::isIdValid($user_id)) {
+  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
+  // }
   $this->user_id = $user_id;
 }
 
@@ -63,9 +63,9 @@ public function setCoffeeID($coffee_id) {
     return;
   }
 
-  if(!ModelUtils::isIdValid($coffee_id)) {
-    throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  }
+  // if(!ModelUtils::isIdValid($coffee_id)) {
+  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
+  // }
   $this->coffee_id = $coffee_id;
 }
 
@@ -156,7 +156,7 @@ public static function findAll($pdo) {
   $coffee_orders = [];
 
   foreach($stt->fetchAll() as $row) {
-    array_push($coffee_orders, new Coffee($row));
+    array_push($coffee_orders, new Orders($row));
   }
 
   return $coffee_orders;

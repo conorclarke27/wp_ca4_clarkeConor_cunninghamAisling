@@ -132,18 +132,18 @@ public function insert($pdo, $coffee) {
   } 
 }
 
-public function update($pdo) {
+public function update($pdo, $coffee) {
   if(!($pdo instanceof PDO)) {
     throw new Exception('Invalid PDO object for Coffee update');
   }
 
   $stt = $pdo->prepare('UPDATE coffees SET coffee_name=:coffee_name, supplier_name=:supplier_name, price=:price, quantity=:quantity WHERE coffee_id=:coffee_id LIMIT 1');
   $stt->execute([
-    'coffee_id'   => $this->getCoffeeId(),
-    'coffee_name' => $this->getCoffeeName(),
-    'supplier_name' => $this->getSupplierName(),
-    'price'       => $this->getPrice(),
-    'quantity'    => $this->getQuantity()
+    'coffee_id'   => $coffee->getCoffeeId(),
+    'coffee_name' => $coffee->getCoffeeName(),
+    'supplier_name' => $coffee->getSupplierName(),
+    'price'       => $coffee->getPrice(),
+    'quantity'    => $coffee->getQuantity()
   ]);
 
   return $stt->rowCount() === 1;
@@ -202,15 +202,15 @@ public static function findAll($db) {
   // }, $query->fetchAll());
 }
 
-public static function findOneById($coffee_id, $db) {
+public static function findOneById($db, $coffee_id) {
 
   if(!($db instanceof PDO)) {
     throw new Exception('Invalid PDO object for Coffee findOneById');
   }
 
-  if(!  ModelUtils::isValidId($coffee_id)) {
-    throw new Exception('Coffee ID for findOneById must be positive numeric');
-  }
+  // if(!  ModelUtils::isValidId($coffee_id)) {
+  //   throw new Exception('Coffee ID for findOneById must be positive numeric');
+  // }
 
   $stt = $db->prepare('SELECT coffee_id, coffee_name, supplier_name, price, quantity FROM coffees WHERE coffee_id = :coffee_id LIMIT 1');
   $stt->execute([
@@ -220,7 +220,7 @@ public static function findOneById($coffee_id, $db) {
   $row = $stt->fetch();
 
   return $row !== FALSE
-    ? new Coffee($row)
+    ? new Coffees($row)
     : NULL;
 }
 

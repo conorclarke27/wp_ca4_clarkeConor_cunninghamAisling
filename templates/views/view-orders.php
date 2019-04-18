@@ -16,10 +16,10 @@
         <td><?= $order->getCoffeeID() ?></td>
 
         <td>
-            <a class='btn' href='deletecoffee?coffeeID=<?= $order->getCoffeeID() ?>'> Delete coffee </a> 
+            <a class='btn' href='delete-order?order_id=<?= $order->getOrderID() ?>'> Delete Order </a> 
         </td>
         <td>
-            <a class='btn' href='editcoffee?coffeeID=<?= $order->getCoffeeID() ?>'> Edit coffee </a> 
+            <a class='btn' href='edit-orders?order_id=<?= $order->getOrderID() ?>'> Edit Order </a> 
         </td>
       </tr>
     <?php } ?>

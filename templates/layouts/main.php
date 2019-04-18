@@ -72,9 +72,10 @@
         
         <div class='container'>
             <?= \Rapid\Renderer::VIEW_PLACEHOLDER ?>
+            </div>
 
     </body>
-</div>
+
 <div class ="navbar navbar-inverse navbar-fixed-bottom">
             <div class="container-fluid">
                 <div class="navbar-footer">

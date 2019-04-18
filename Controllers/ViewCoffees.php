@@ -6,7 +6,7 @@ require('./models/Coffees.php');
 
 $coffees = Coffees::findAll($db);
 
-$res->render('main', 'view_coffees', [
+$res->render('main', 'view-coffees', [
     'pageTitle' => 'View Coffees',
     'viewAllCoffees' => $coffees
 ]);

@@ -14,6 +14,8 @@
   $app->GET('/view-users',    'ViewUsers');
   $app->GET('/add-coffees',   'AddCoffeesGet');
   $app->POST('/add-coffees',  'AddCoffeesPost');
+  $app->GET('/add-user-login',   'AddUserGet');
+  $app->POST('/add-user-login',  'AddUserPost');
 
   // Process the request
   $app->dispatch();

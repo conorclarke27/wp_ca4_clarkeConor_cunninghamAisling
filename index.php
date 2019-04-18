@@ -10,8 +10,10 @@
   // processed by the controller at controllers/Home.php
   $app->GET('/',              'Home');
   $app->GET('/view-coffees',  'ViewCoffees');
-  $app->GET('/view-orders',   'ViewOrders')
+  $app->GET('/view-orders',   'ViewOrders');
   $app->GET('/view-users',    'ViewUsers');
+  $app->GET('/add-coffees',   'AddCoffeesGet');
+  $app->POST('/add-coffees',  'AddCoffeesPost');
 
   // Process the request
   $app->dispatch();

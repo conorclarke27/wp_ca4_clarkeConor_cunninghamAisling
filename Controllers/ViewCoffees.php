@@ -5,9 +5,9 @@
 
     $coffees = Coffees::findAll($db);
 
-$res->render('main', 'view-coffees', [
-    'pageTitle' => 'View Coffees',
-    'viewAllCoffees' => $coffees
-]);
-}
-?>
+    $res->render('main', 'view-coffees', [
+        'pageTitle' => 'View Coffees',
+        'viewAllCoffees' => $coffees
+    ]);
+    
+} ?>

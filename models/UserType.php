@@ -102,4 +102,28 @@
     return $deleted;
   }
 
+  /**
+   * #################################################
+   * #Static Methods
+   * #################################################
+  */
+
+  public static function findAll($db) {
+
+    if(!($db instanceof PDO)) {
+      throw new Exception('Invalid PDO object for UserType findAll');
+    }
+
+    $stt = $db->prepare('SELECT type_id, typename FROM user_types');
+    $stt->execute();
+
+    $types = [];
+
+    foreach($stt->fetchAll() as $row) {
+      array_push($types, new Users($row));
+    }
+
+    return $types;
+  }
+
 } ?>

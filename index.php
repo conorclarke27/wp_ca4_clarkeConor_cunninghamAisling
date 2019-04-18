@@ -22,6 +22,9 @@
   $app->POST('/add-userTypes',    'AddUserTypesPost');
   $app->GET('/edit-coffees',      'EditCoffeesGet');
   $app->POST('/edit-coffees',     'EditCoffeesPost');
+  $app->GET('/edit-orders',       'EditOrdersGet');
+  $app->POST('/edit-orders',       'EditOrdersPost');
+
   // Process the request
   $app->dispatch();
 

@@ -98,16 +98,16 @@ public function insert($pdo, $order) {
   }
 } 
 
-public function update($pdo) {
+public function update($pdo, $order) {
   if(!($pdo instanceof PDO)) {
     throw new Exception('Invalid PDO object for Coffee_Order update');
   }
 
   $stt = $pdo->prepare('UPDATE coffee_orders SET user_id=:user_id, coffee_id=:coffee_id WHERE order_id=:order_id LIMIT 1');
   $stt->execute([
-    'order_id'    => $this->getOrderID(),
-    'user_id'     => $this->getUserID(),
-    'coffee_id'   => $this->getCoffeeID()
+    'order_id'    => $order->getOrderID(),
+    'user_id'     => $order->getUserID(),
+    'coffee_id'   => $order->getCoffeeID()
   ]);
 
   return $stt->rowCount() === 1;
@@ -162,6 +162,29 @@ public static function findAll($pdo) {
   return $coffee_orders;
 
 }
+
+public static function findOneById($db, $order_id) {
+
+  if(!($db instanceof PDO)) {
+    throw new Exception('Invalid PDO object for Coffee findOneById');
+  }
+
+  // if(!  ModelUtils::isValidId($coffee_id)) {
+  //   throw new Exception('Coffee ID for findOneById must be positive numeric');
+  // }
+
+  $stt = $db->prepare('SELECT order_id, user_id, coffee_id FROM coffee_orders WHERE order_id = :order_id LIMIT 1');
+  $stt->execute([
+    'order_id' => $order_id
+  ]);
+
+  $row = $stt->fetch();
+
+  return $row !== FALSE
+    ? new Orders($row)
+    : NULL;
+}
+
 
 
 } ?>

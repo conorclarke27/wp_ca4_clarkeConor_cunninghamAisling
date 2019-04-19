@@ -1,4 +1,4 @@
-<?php class Users {
+<?php class User {
 
   private $user_id;
   private $type_id;
@@ -221,7 +221,7 @@
     $users = [];
 
     foreach($stt->fetchAll() as $row) {
-      array_push($users, new Users($row));
+      array_push($users, new User($row));
     }
 
     return $users;
@@ -269,7 +269,7 @@
     $row = $stt->fetch();
   
     return $row !== FALSE
-      ? new Users($row)
+      ? new User($row)
       : NULL;
   }
   

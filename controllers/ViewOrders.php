@@ -1,9 +1,9 @@
 <?php return function($req, $res) {
 
   $db = \Rapid\Database::getPDO();
-  require('./models/Orders.php');
+  require('./models/Order.php');
 
-  $orders = Orders::findAll($db);
+  $orders = Order::findAll($db);
 
   $res->render('main', 'view-orders', [
       'pageTitle' => 'View Orders',

@@ -1,9 +1,9 @@
 <?php return function($req,$res){
 
     $db = \Rapid\Database::getPDO();
-    require('./models/Users.php');
+    require('./models/User.php');
 
-    $user = new Users([
+    $user = new User([
         'type_id' => $req->body('type_id'),
         'username' => $req->body('username'),
         'password' => password_hash($req->body('password'),PASSWORD_BCRYPT,['cost' => 12]),
@@ -11,7 +11,7 @@
         'supplier_name'=> $req->body('supplier_name')
     ]);
 
-    Users::insert($db,$user);
+    User::insert($db,$user);
 
     
     $res->render('main', 'add-user-login', [

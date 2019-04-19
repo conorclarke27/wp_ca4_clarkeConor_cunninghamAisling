@@ -1,9 +1,9 @@
 <?php return function($req, $res) {
 
   $db = \Rapid\Database::getPDO();
-  require('./models/Coffees.php');
+  require('./models/Coffee.php');
 
-  $coffee = new Coffees([
+  $coffee = new Coffee([
       'coffee_id' => $req->query('coffee_id'),
       'coffee_name' => $req->body('coffee_name'),
       'supplier_name' => $req->body('supplier_name'),

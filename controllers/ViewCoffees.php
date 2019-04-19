@@ -1,9 +1,9 @@
 <?php return function($req, $res) {
 
     $db = \Rapid\Database::getPDO();
-    require('./models/Coffees.php');
+    require('./models/Coffee.php');
 
-    $coffees = Coffees::findAll($db);
+    $coffees = Coffee::findAll($db);
 
     $res->render('main', 'view-coffees', [
         'pageTitle' => 'View Coffees',

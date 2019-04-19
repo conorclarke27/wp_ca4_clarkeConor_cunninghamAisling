@@ -1,6 +1,6 @@
 <?php require_once('./lib/utils/ModelUtils.php');?>
 
-<?php class Coffees {
+<?php class Coffee {
 
 private $coffee_id;
 private $coffee_name;
@@ -192,7 +192,7 @@ public static function findAll($db) {
   $coffees = [];
 
   foreach($stt->fetchAll() as $row) {
-    array_push($coffees, new Coffees($row));
+    array_push($coffees, new Coffee($row));
   }
 
   return $coffees;
@@ -220,7 +220,7 @@ public static function findOneById($db, $coffee_id) {
   $row = $stt->fetch();
 
   return $row !== FALSE
-    ? new Coffees($row)
+    ? new Coffee($row)
     : NULL;
 }
 

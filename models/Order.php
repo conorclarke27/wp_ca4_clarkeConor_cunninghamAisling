@@ -1,4 +1,4 @@
-<?php class Orders {
+<?php class Order {
 
 private $order_id;
 private $user_id;
@@ -156,7 +156,7 @@ public static function findAll($pdo) {
   $coffee_orders = [];
 
   foreach($stt->fetchAll() as $row) {
-    array_push($coffee_orders, new Orders($row));
+    array_push($coffee_orders, new Order($row));
   }
 
   return $coffee_orders;
@@ -181,7 +181,7 @@ public static function findOneById($db, $order_id) {
   $row = $stt->fetch();
 
   return $row !== FALSE
-    ? new Orders($row)
+    ? new Order($row)
     : NULL;
 }
 

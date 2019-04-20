@@ -2,6 +2,8 @@
 
   // Include the Rapid library
   require_once('lib/Rapid.php');
+  // $config = require('config.php');
+  // define ('SITE_BASE_DIR', $config['site_base_dir']);
 
   // Create a new Router instance
   $app = new \Rapid\Router();
@@ -24,6 +26,8 @@
   $app->POST('/edit-coffees',     'EditCoffeesPost');
   $app->GET('/edit-orders',       'EditOrdersGet');
   $app->POST('/edit-orders',      'EditOrdersPost');
+  $app->GET('/edit-users',       'EditUserGet');
+  $app->POST('/edit-users',      'EditUserPost');
   $app->GET('/user-login',        'LogInGet');
   $app->POST('/user-login',       'LogInPost');
 

@@ -25,7 +25,7 @@
                                             <div class="panel-heading">Supplier:  <?=$user->getSupplier_Name() ?></div>
                                         </div>
                                         <div class="panel-heading" style="height:40px;">
-                                            <button style="float:left;" class="btn btn-danger btn-xs">Edit User</button>
+                                            <a class='btn' href="edit-users?user_id=<?= $user->getUserId() ?>"> Edit User </a>
                                             <button style="float:right;" class="btn btn-danger btn-xs">Delete User</button>
                                         </div>
                                     </div>

@@ -11,6 +11,9 @@
       'quantity' => $req->body('quantity')
   ]);
 
-  Coffees::update($db, $coffee);
+  Coffee::update($db, $coffee);
+
+  $res->redirect("/view-coffees");
+
 
 } ?>

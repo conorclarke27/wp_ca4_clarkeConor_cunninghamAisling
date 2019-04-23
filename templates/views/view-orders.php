@@ -16,7 +16,7 @@
         <td><?= $order->getCoffeeID() ?></td>
 
         <td>
-            <a class='btn' href='delete-order?order_id=<?= $order->getOrderID() ?>'> Delete Order </a> 
+            <a class='btn' href='DeleteOrder?order_id=<?= $order->getOrderID() ?>'> Delete Order </a> 
         </td>
         <td>
             <a class='btn' href='edit-orders?order_id=<?= $order->getOrderID() ?>'> Edit Order </a> 

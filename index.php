@@ -38,6 +38,9 @@
   $app->GET('/DeleteOrder',       'DeleteOrder');
   $app->GET('/DeleteUser',        'DeleteUser');
   $app->GET('/DeleteUserType',    'DeleteUserType');
+
+  $app->POST('/ShoppingCart/add',      'ShoppingCart');
+
   // Process the request
   $app->dispatch();
 

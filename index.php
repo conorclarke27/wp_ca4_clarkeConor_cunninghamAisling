@@ -26,11 +26,14 @@
   $app->POST('/edit-coffees',     'EditCoffeesPost');
   $app->GET('/edit-orders',       'EditOrdersGet');
   $app->POST('/edit-orders',      'EditOrdersPost');
-  $app->GET('/edit-users',       'EditUserGet');
-  $app->POST('/edit-users',      'EditUserPost');
+  $app->GET('/edit-users',        'EditUserGet');
+  $app->POST('/edit-users',       'EditUserPost');
   $app->GET('/user-login',        'LogInGet');
   $app->POST('/user-login',       'LogInPost');
-
+  $app->GET('/DeleteCoffee',      'DeleteCoffee');
+  $app->POST('/DeleteOrder',      'DeleteOrder');
+  $app->POST('/DeleteUser',       'DeleteUser');
+  $app->POST('/DeleteUserType',   'DeleteUserType');
   // Process the request
   $app->dispatch();
 

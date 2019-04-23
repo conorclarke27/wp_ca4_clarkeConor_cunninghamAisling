@@ -9,6 +9,7 @@
         'coffee_id' => $req->body('coffee_id')
     ]);
 
-    Orders::update($db, $order);
-
+    Order::update($db, $order);
+    
+    $res->redirect("/view-orders");
 } ?>

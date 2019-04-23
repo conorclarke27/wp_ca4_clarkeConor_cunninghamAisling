@@ -1,4 +1,5 @@
-<h2>Add Users</h2>
+<h2>Add User</h2>
+<?php $types = $locals['viewAllTypes']?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,20 +18,29 @@
                         <div class="panel-body">
                            <form action='' method='post'>
                             <div class="col-md-10">
-                                <label for='type_id'>User Type ID:</label>
-                                <input type='text' id='type_id' name='type_id' value='<?= $type_id['value'] ?>' class="form-control">
+                            <label for="type_id">Type Name:</label>
+                            <select name="type_id" id="type_id" class="form-control">
+                            <option value="" disabled selected>Select...</option>
+                            <?php foreach($types as $type) {?>                                                                                                           
+                            <option value="<?= $type->getTypeId()?>"><?= $type->getTypeName()?> </option>
+                            <?php } ?>
+                            </select>
                             </div>
                             <div class="col-md-10">
                                 <label for='username'>Username:</label>
                                 <input type='text' id='username' name='username' value='<?= $username['value'] ?>' class="form-control">
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-10">
                                 <label for='email'>Email:</label>
                                 <input type='email' id='email' name='email' value='<?= $email['value'] ?>' class="form-control">
                             </div>
                             <div class="col-md-5">
                                 <label for='password'>Password:</label>
                                 <input type='password' id='password' name='password' value='<?= $password ?>' class="form-control">
+                            </div>
+                            <div class="col-md-5">
+                                <label for='password2'>Re-enter Password:</label>
+                                <input type='password' id='password2' name='password2' value='<?= $password2 ?>' class="form-control">
                             </div>
                             <div class="col-md-10">
                                 <label for='supplier_name'>Supplier:</label>

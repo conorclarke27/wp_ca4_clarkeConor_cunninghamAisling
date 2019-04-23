@@ -8,7 +8,7 @@
     </head>
     <body>
 
-        <div class="container-fluid">
+    <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
@@ -16,17 +16,18 @@
                         <div class="panel-heading">Log in Form</div>
                         <div class="panel-body">
                            <form action='' method='post'>
-                            <div class="email">
+                           <div class="col-md-10">
                                 <label for='email'>Email:</label>
                                 <input type='email' id='email' name='email' value='<?= $email['value'] ?>' class="form-control">
-                            </div class="col-md-8">
+                                </div>
+                                <div class="col-md-10">
                                 <label for='password'>Password:</label>
                                 <input type='password' id='password' name='password' value='<?= $password ?>' class="form-control">
                             </div>
                             <p><br/></p>
                             <div class="row">
                             <div class="col-md-12">
-                                <input style="float:right;" type='submit' value='Sign Up' class="btn btn-success btn-lg">
+                                <input style="float:right;" type='submit' value='Log in' class="btn btn-success btn-lg">
                             </div>
                             </div>
                         </form>

@@ -32,8 +32,13 @@
                                             <button style="float:right;" class="btn btn-danger btn-xs">Add To Cart</button>
                                         </div>
                                     </div>
-                             
-                                </div>
+                                    <td>
+                                        <a class='btn' href='DeleteCoffee?coffee_id=<?= $coffee->getCoffeeId() ?>'> Delete Coffee </a> 
+                                    </td>
+                                    <td>
+                                        <a class='btn' href='edit-coffees?coffee_id=<?= $coffee->getCoffeeId() ?>'> Edit Coffee </a> 
+                                    </td>
+                            </div>
                                        
                         <?php }
                             ?>

@@ -5,7 +5,7 @@
 
 
     $user = new User([
-        'user_id' => $req->query('user_id');
+        'user_id' => $req->query('user_id'),
         'type_id' => $req->body('type_id'),
         'username' => $req->body('username'),
         'password' => password_hash($req->body('password'),PASSWORD_BCRYPT,['cost' => 12]),

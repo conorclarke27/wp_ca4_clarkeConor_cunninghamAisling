@@ -1,4 +1,4 @@
-<h2>View Users</h2>
+<h2>Add Users</h2>
 <!DOCTYPE html>
 <html lang="en">
     <head>

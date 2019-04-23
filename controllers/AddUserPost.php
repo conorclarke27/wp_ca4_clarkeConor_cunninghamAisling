@@ -14,7 +14,7 @@
     User::insert($db,$user);
 
     
-    $res->render('main', 'add-user-login', [
+    $res->render('main', 'add-user', [
         'pageTitle' => 'Add Users',
         'user' => $user
         ]);

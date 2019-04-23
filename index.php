@@ -1,9 +1,10 @@
 <?php
+ 
 
   // Include the Rapid library
   require_once('lib/Rapid.php');
-  // $config = require('config.php');
-  // define ('SITE_BASE_DIR', $config['site_base_dir']);
+
+  define ('SITE_BASE_DIR','/wp_ca4_clarkeConor_cunninghamAisling');
 
   // Create a new Router instance
   $app = new \Rapid\Router();

@@ -180,25 +180,25 @@
 
 
 
-  public function delete($pdo) {
+  public function delete($pdo, $user) {
 
     if(!($pdo instanceof PDO)) {
       throw new Exception('Invalid PDO object for User delete');
     }
   
-    if($this->getUserId() === NULL) {
+    if($user->getUserId() === NULL) {
       throw new Exception('Cannot delete a transient User Object');
     }
   
     $stt = $pdo->prepare('DELETE FROM users WHERE user_id=:user_id LIMIT 1');
     $stt->execute([
-      'user_id'   => $this->getUserId()
+      'user_id'   => $user->getUserId()
     ]);
   
     $deleted = $stt->rowCount() === 1;
   
     if($deleted) {
-      $this->setUserId(NULL);
+      $user->setUserId(NULL);
     }
   
     return $deleted;

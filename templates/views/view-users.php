@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="panel-heading" style="height:40px;">
                                             <a style="float:left;" class='btn btn-success btn-xs' href="edit-users?user_id=<?= $user->getUserId() ?>"> Edit User </a>
-                                            <a style="float:right;" class="btn btn-danger btn-xs">Delete User</a>
+                                            <a style="float:right;" class="btn btn-danger btn-xs" href="DeleteUser?user_id=<?= $user->getUserId() ?>">Delete User</a>
                                         </div>
                                     </div>
                                 </div>

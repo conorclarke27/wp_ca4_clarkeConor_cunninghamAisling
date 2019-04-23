@@ -30,6 +30,8 @@
   $app->POST('/edit-orders',      'EditOrdersPost');
   $app->GET('/edit-users',        'EditUserGet');
   $app->POST('/edit-users',       'EditUserPost');
+  $app->GET('/edit-userTypes',    'EditUserTypeGet');
+  $app->POST('/edit-userTypes',   'EditUserTypePost');
   $app->GET('/user-login',        'LogInGet');
   $app->POST('/user-login',       'LogInPost');
   $app->GET('/DeleteCoffee',      'DeleteCoffee');

@@ -29,7 +29,7 @@
                                             <img src="./assets/images/kenco-smooth.jpg" class="img-thumbnail"  alt="Responsive image">
                                         </div>
                                         <div class="panel-heading"><?= $coffee->getPrice() ?>
-                                            <button style="float:right;" class="btn btn-danger btn-xs">Add To Cart</button>
+                                            <button style="float:right;" class="btn btn-danger btn-xs" name="add_to_cart">Add To Cart</button>
                                         </div>
                                     </div>
                              
@@ -45,3 +45,4 @@
                 </div>
 </body>
 </html>
+

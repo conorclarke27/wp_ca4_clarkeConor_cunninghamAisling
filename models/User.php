@@ -161,18 +161,18 @@
     }
   } 
 
-  public function update($pdo) {
+  public function update($pdo, $user) {
     if(!($pdo instanceof PDO)) {
       throw new Exception('Invalid PDO object for User update');
     }
   
     $stt = $pdo->prepare('UPDATE users SET type_id=:type_id, username=:username, password=:password, email=:email, supplier_name=:supplier_name WHERE user_id=:user_id LIMIT 1');
     $stt->execute([
-      'type_id' => $this->getUserType(),
-      'username' => $this->getUsername(),
-      'password'       => $this->getPassword(),
-      'email'    => $this->getEmail(),
-      'supplier_name' => $this->getSupplier_Name()
+      'type_id' => $user->getUserType(),
+      'username' => $user->getUsername(),
+      'password'       => $user->getPassword(),
+      'email'    => $user->getEmail(),
+      'supplier_name' => $user->getSupplier_Name()
     ]);
   
     return $stt->rowCount() === 1;

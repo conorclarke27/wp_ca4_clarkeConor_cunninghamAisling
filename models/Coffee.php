@@ -149,25 +149,25 @@ public function update($pdo, $coffee) {
   return $stt->rowCount() === 1;
 }
 
-public function delete($pdo) {
+public function delete($pdo, $coffee) {
 
   if(!($pdo instanceof PDO)) {
     throw new Exception('Invalid PDO object for Coffee delete');
   }
 
-  if($this->getCoffeeId() === NULL) {
+  if($coffee->getCoffeeId() === NULL) {
     throw new Exception('Cannot delete a transient Coffee Object');
   }
 
   $stt = $pdo->prepare('DELETE FROM coffees WHERE coffee_id=:coffee_id LIMIT 1');
   $stt->execute([
-    'coffee_id'   => $this->getCoffeeId()
+    'coffee_id'   => $coffee->getCoffeeId()
   ]);
 
   $deleted = $stt->rowCount() === 1;
 
   if($deleted) {
-    $this->setCoffeeId(NULL);
+    $coffee->setCoffeeId(NULL);
   }
 
   return $deleted;

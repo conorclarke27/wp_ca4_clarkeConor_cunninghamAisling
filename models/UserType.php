@@ -84,7 +84,7 @@
       throw new Exception('Invalid PDO object for User delete');
     }
   
-    if($this->getUserId() === NULL) {
+    if($type->getTypeId() === NULL) {
       throw new Exception('Cannot delete a transient User Object');
     }
   
@@ -108,6 +108,28 @@
    * #################################################
   */
 
+  public static function findOneById($db, $type_id) {
+
+    if(!($db instanceof PDO)) {
+      throw new Exception('Invalid PDO object for user findOneById');
+    }
+  
+    // if(! ModelUtils::isIdValid($user_id)) {
+    //   throw new Exception('user ID for findOneById must be positive numeric');
+    // }
+  
+    $stt = $db->prepare('SELECT type_id, typename FROM user_types WHERE type_id = :type_id LIMIT 1');
+    $stt->execute([
+      'type_id' => $type_id
+    ]);
+  
+    $row = $stt->fetch();
+  
+    return $row !== FALSE
+      ? new UserType($row)
+      : NULL;
+  }
+
   public static function findAll($db) {
 
     if(!($db instanceof PDO)) {
@@ -120,7 +142,7 @@
     $types = [];
 
     foreach($stt->fetchAll() as $row) {
-      array_push($types, new Users($row));
+      array_push($types, new UserType($row));
     }
 
     return $types;

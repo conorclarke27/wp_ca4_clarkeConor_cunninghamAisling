@@ -14,6 +14,7 @@
   $app->GET('/view-coffees',      'ViewCoffees');
   $app->GET('/view-orders',       'ViewOrders');
   $app->GET('/view-users',        'ViewUsers');
+  $app->GET('/view-userTypes',    'ViewUserTypes');
   $app->GET('/add-coffees',       'AddCoffeesGet');
   $app->POST('/add-coffees',      'AddCoffeesPost');
   $app->GET('/add-orders',        'AddOrdersGet');
@@ -31,9 +32,9 @@
   $app->GET('/user-login',        'LogInGet');
   $app->POST('/user-login',       'LogInPost');
   $app->GET('/DeleteCoffee',      'DeleteCoffee');
-  $app->GET('/DeleteOrder',      'DeleteOrder');
-  $app->GET('/DeleteUser',       'DeleteUser');
-  $app->GET('/DeleteUserType',   'DeleteUserType');
+  $app->GET('/DeleteOrder',       'DeleteOrder');
+  $app->GET('/DeleteUser',        'DeleteUser');
+  $app->GET('/DeleteUserType',    'DeleteUserType');
   // Process the request
   $app->dispatch();
 

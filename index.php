@@ -31,9 +31,9 @@
   $app->GET('/user-login',        'LogInGet');
   $app->POST('/user-login',       'LogInPost');
   $app->GET('/DeleteCoffee',      'DeleteCoffee');
-  $app->POST('/DeleteOrder',      'DeleteOrder');
-  $app->POST('/DeleteUser',       'DeleteUser');
-  $app->POST('/DeleteUserType',   'DeleteUserType');
+  $app->GET('/DeleteOrder',      'DeleteOrder');
+  $app->GET('/DeleteUser',       'DeleteUser');
+  $app->GET('/DeleteUserType',   'DeleteUserType');
   // Process the request
   $app->dispatch();
 

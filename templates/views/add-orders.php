@@ -1,4 +1,4 @@
-<h2>Create an order</h2>
+<h2></h2>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,41 +8,37 @@
     </head>
     <body>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">Create an Order</div>
-                        <div class="panel-body">
-                           <form action='' method='post'>
-                            <div class="col-md-8">
+      
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-9">
+<div class="card text-white bg-info mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Create an order</div></h5>
+    <p class="card-text">
+    <form action='' method='post'>
+                            <div class="col-sm-8">
                             <label for='user_id'>User ID:</label>
                             <input type='text' id='user_id' name='user_id' value='<?= $user_id['value']; ?>'class="form-control">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-sm-8">
                             <label for='coffee_id'>Coffee ID:</label>
                             <input type='text' id='coffee_id' name='coffee_id' value='<?= $coffee_id['value']; ?>' class="form-control">
                             </div>
                             <p><br/></p>
                             <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-sm-11">
                                 <input style="float:right;" type='submit' value='Create Order' class="btn btn-success btn-lg">
                             </div>
                             </div>
                         </form>
-                        </div>
+   </p>
 
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="col-md-1"></div>
-
-            </div>
-        </div>
-    </body>
+    
+  </div>
+</div>
+</div>
+</div>
+</body>
+    
 </html>

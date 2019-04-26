@@ -1,4 +1,4 @@
-<h2>View User Types</h2>
+<h2></h2>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,42 +7,22 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
     </head>
     <body>
+    <div class="row">
+    <?php foreach ($locals['viewAllUserTypes'] as $userType) { ?>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><?= $userType->getTypeName() ?></div></h5>
+        <p class="card-text">Type ID: <?=  $userType->getTypeId() ?> </p>
+        <div class="card-footer" style="height:150px;">
+        <a class='btn btn-success btn-xs' href="edit-userTypes?type_id=<?= $userType->getTypeId() ?>"> Edit</a>
+        <a  class="btn btn-danger btn-xs" href="DeleteUserType?type_id=<?= $userType->getTypeId() ?>">Delete</a>
+        
+      </div>
+    </div>
+  </div>
+  <?php }?>
+  </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">User Types</div>
-                        <div class="panel-body">
-                            <?php foreach ($locals['viewAllUserTypes'] as $userType) { ?>
-                                <div class ="col-md-5">
-                                    <div class="panel panel-info">
-                                        <div class="panel-body">
-                                            <div class="panel-heading">Type ID: <?=  $userType->getTypeId() ?></div>
-                                            <div class="panel-heading">Type Name: <?= $userType->getTypeName() ?></div>
-                                        </div>
-                                        <div class="panel-heading" style="height:40px;">
-                                            <a style="float:left;" class='btn btn-success btn-xs' href="edit-userTypes?type_id=<?= $userType->getTypeId() ?>"> Edit User </a>
-                                            <a style="float:right;" class="btn btn-danger btn-xs" href="DeleteUserType?type_id=<?= $userType->getTypeId() ?>">Delete User Type</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php }
-                            ?>
-
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="col-md-1"></div>
-
-            </div>
-        </div>
     </body>
 </html>

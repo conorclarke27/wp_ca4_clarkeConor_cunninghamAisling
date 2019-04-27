@@ -7,43 +7,22 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
     </head>
     <body>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">Orders</div>
-                        <div class="panel-body">
-                        <?php foreach ($locals['viewAllOrders'] as $order) { ?>
-                                <div class ="col-md-3">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">Order: <?= $order->getOrderID() ?></div>
-                                        <div class="panel-body">
-                                            <div class="panel-heading">User ID: <?= $order->getUserID() ?></div>
-                                            <div class="panel-heading">Coffee ID: <?= $order->getCoffeeID() ?></div>
-                                        </div>
-                                        <div class="panel-heading" style="height:40px;">
-                                            <a style="float:left;" class='btn btn-success btn-xs' href='edit-orders?order_id=<?= $order->getOrderID() ?>'> Edit</a>
-                                            <a style="float:right;" class="btn btn-danger btn-xs" href='DeleteOrder?order_id=<?= $order->getOrderID() ?>'>Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php }
-                            ?>
-
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="col-md-1"></div>
-
-            </div>
-        </div>
+    <div class="row">
+    <?php foreach ($locals['viewAllOrders'] as $order) { ?>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Order: <?= $order->getOrderID() ?></h5>
+        <p class="card-text"> User ID: <?= $order->getUserID() ?></p>
+        <p class="card-text"> Coffee ID: <?= $order->getCoffeeID() ?></p>
+        <div class="card-footer" style="height:150px;">
+        <a  class='btn btn-success btn-xs' href='edit-orders?order_id=<?= $order->getOrderID() ?>'> Edit</a>
+        <a class="btn btn-danger btn-xs" href='DeleteOrder?order_id=<?= $order->getOrderID() ?>'>Delete</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <?php }?>
+   </div>
     </body>
 </html>

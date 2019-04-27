@@ -9,6 +9,7 @@
   // Create a new Router instance
   $app = new \Rapid\Router();
 
+  try{
   // Define some routes. Here: requests to / will be
   // processed by the controller at controllers/Home.php
   $app->GET('/',                  'Home');
@@ -43,5 +44,11 @@
 
   // Process the request
   $app->dispatch();
+  }
+  catch(\Rapid\RouteNotFoundException $e){
+    $res =  $e->getResponseObject();
+    $res->render('main', '404', []);
+ 
+ }
 
 ?>

@@ -1,4 +1,4 @@
-<h2>View Users</h2>
+<h2></h2>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,41 +8,34 @@
     </head>
     <body>
 
-    <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Log in Form</div>
-                        <div class="panel-body">
-                           <form action='' method='post'>
-                           <div class="col-md-10">
+    <div class="row">
+    <div class="col-sm-1"></div>
+<div class="col-sm-9">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Welcome Back! Please log in</div></h5>
+        <p class="card-text">
+            <form action='' method='post'>
+                           <div class="col-sm-10">
                                 <label for='email'>Email:</label>
                                 <input type='email' id='email' name='email' value='<?= $email['value'] ?>' class="form-control">
                                 </div>
-                                <div class="col-md-10">
+                                <div class="col-sm-10">
                                 <label for='password'>Password:</label>
                                 <input type='password' id='password' name='password' value='<?= $password ?>' class="form-control">
                             </div>
-                            <p><br/></p>
                             <div class="row">
-                            <div class="col-md-12">
-                                <input style="float:right;" type='submit' value='Log in' class="btn btn-success btn-lg">
+ 		<div class="col-sm-11">
+		<input style="float:right;" type='submit' value='Log in' class="btn btn-success btn-lg">
+ </div>
                             </div>
-                            </div>
-                        </form>
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="col-md-1"></div>
-
-            </div>
-        </div>
-    </body>
+                            
+</form>
+       </p>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  </body>
 </html>

@@ -1,3 +1,5 @@
+<?php require_once('./lib/utils/ModelUtils.php');?>
+
 <?php class User {
 
   private $user_id;
@@ -70,9 +72,9 @@
       $this->user_id = NULL;
       return;
     }
-    // if(! ModelUtils::isValidId($user_id)) {
-    //   throw new Exception('User ID for a User object must be positive numeric');
-    // }
+    if(! ModelUtils::isValidId($user_id)) {
+      throw new Exception('User ID for a User object must be positive numeric');
+    }
     $this->user_id = $user_id;
   }
 
@@ -81,9 +83,9 @@
       $this->type_id = NULL;
       return;
     }
-    // if(! ModelUtils::isValidId($type_id)) {
-    //   throw new Exception('User Type for a User object must be positive numeric');
-    // }
+    if(! ModelUtils::isValidId($type_id)) {
+      throw new Exception('User Type for a User object must be positive numeric');
+    }
     $this->type_id = $type_id;
   }
 
@@ -93,9 +95,9 @@
       return;
     }
   
-    // if(!preg_match('/^[a-z]{3,55}$/i', $username)) {
-    //   throw new Exception('Username does not match expected pattern');
-    // }
+    if(!ModelUtils::isValidName($username)) {
+      throw new Exception('Username does not match expected pattern');
+    }
     $this->username = $username;
   }
 
@@ -113,6 +115,10 @@
       $this->email = NULL;
       return;
     }
+
+    if(!ModelUtils::isValidEmail($email)) {
+      throw new Exception('Username does not match expected pattern');
+    }
   
     $this->email = $email;
   }
@@ -121,6 +127,10 @@
     if($supplier_name=== NULL) {
       $this->supplier_name = NULL;
       return;
+    }
+
+    if(!ModelUtils::isValidName($supplier_name)) {
+      throw new Exception('Supplier Name does not match expected pattern, no numerics');
     }
   
     $this->supplier_name = $supplier_name;
@@ -234,9 +244,9 @@
       throw new Exception('Invalid PDO object for user findOneById');
     }
   
-    // if(! ModelUtils::isIdValid($user_id)) {
-    //   throw new Exception('user ID for findOneById must be positive numeric');
-    // }
+    if(! ModelUtils::isValidId($user_id)) {
+      throw new Exception('user ID for findOneById must be positive numeric');
+    }
   
     $stt = $db->prepare('SELECT user_id, type_id,username,password, email, supplier_name FROM users WHERE user_id = :user_id LIMIT 1');
     $stt->execute([
@@ -257,9 +267,9 @@
       throw new Exception('Invalid PDO object for user findOneByEmail');
     }
   
-    // if(! ModelUtils::isIdValid($user_id)) {
-    //   throw new Exception('user ID for findOneById must be positive numeric');
-    // }
+    if(! ModelUtils::isIdValid($user_id)) {
+      throw new Exception('user ID for findOneByEmail must be positive numeric');
+    }
   
     $stt = $db->prepare('SELECT password, email FROM users WHERE email= :email LIMIT 1');
     $stt->execute([

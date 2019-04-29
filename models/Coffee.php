@@ -37,9 +37,9 @@ public function setCoffeeId($coffee_id) {
     return;
   }
 
-  // if(! (ModelUtils::isValidId($coffee_id))) {
-  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  // }
+  if(!ModelUtils::isValidId($coffee_id)) {
+    throw new Exception('Coffee ID for Coffee object must be positive numeric');
+  }
   $this->coffee_id = $coffee_id;
 }
 
@@ -53,9 +53,9 @@ public function setCoffeeName($coffee_name) {
     return;
   }
 
-  // if(!preg_match('/^[a-z]{3,55}$/i', $coffee_name)) {
-  //   throw new Exception('Coffee name does not match expected pattern');
-  // }
+  if(!ModelUtils::isValidName($coffee_name)) {
+    throw new Exception('Coffee Name does not match expected pattern, no numerics');
+  }
   $this->coffee_name = $coffee_name;
 }
 
@@ -69,9 +69,9 @@ public function setSupplierName($supplier_name) {
     return;
   }
 
-  // if(! ModelUtils::isValidId($supplier_name)) {
-  //   throw new Exception('Supplier Name for Coffee object must be positive numeric');
-  // }
+  if(!ModelUtils::isValidName($supplier_name)) {
+    throw new Exception('Supplier Name does not match expected pattern, no numerics');
+  }
   $this->supplier_name = $supplier_name;
 }
 
@@ -84,6 +84,10 @@ public function setPrice($price) {
     $this->price = NULL;
     return;
   }
+
+  if(!ModelUtils::isValidNumber($price)) {
+      throw new Exception('Price for Coffee object must be positive and numeric');
+  }  
 
   $this->price = $price;
 }
@@ -208,9 +212,9 @@ public static function findOneById($db, $coffee_id) {
     throw new Exception('Invalid PDO object for Coffee findOneById');
   }
 
-  // if(!  ModelUtils::isValidId($coffee_id)) {
-  //   throw new Exception('Coffee ID for findOneById must be positive numeric');
-  // }
+  if(!ModelUtils::isValidId($coffee_id)) {
+    throw new Exception('Coffee ID for findOneById must be positive numeric');
+  }
 
   $stt = $db->prepare('SELECT coffee_id, coffee_name, supplier_name, price, quantity FROM coffees WHERE coffee_id = :coffee_id LIMIT 1');
   $stt->execute([

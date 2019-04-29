@@ -1,3 +1,5 @@
+<?php require_once('./lib/utils/ModelUtils.php');?>
+
 <?php class UserType {
 
   private $type_id;
@@ -17,6 +19,10 @@
       $this->type_id = NULL;
       return;
     }
+
+    if(! ModelUtils::isValidId($type_id)) {
+      throw new Exception('Type ID for a User object must be positive numeric');
+    }
   
     $this->type_id = $type_id;
   }
@@ -29,6 +35,10 @@
     if($typename=== NULL) {
       $this->typename = NULL;
       return;
+    }
+
+    if(!ModelUtils::isValidName($typename)) {
+      throw new Exception('Username does not match expected pattern');
     }
   
     $this->typename = $typename;
@@ -114,9 +124,9 @@
       throw new Exception('Invalid PDO object for user findOneById');
     }
   
-    // if(! ModelUtils::isIdValid($user_id)) {
-    //   throw new Exception('user ID for findOneById must be positive numeric');
-    // }
+    if(! ModelUtils::isValidId($type_id)) {
+      throw new Exception('user ID for findOneById must be positive numeric');
+    }
   
     $stt = $db->prepare('SELECT type_id, typename FROM user_types WHERE type_id = :type_id LIMIT 1');
     $stt->execute([

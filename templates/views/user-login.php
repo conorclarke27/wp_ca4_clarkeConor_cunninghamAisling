@@ -26,7 +26,7 @@
                             </div>
                             <div class="row">
  		<div class="col-sm-11">
-		<input style="float:right;" type='submit' value='Log in' class="btn btn-success btn-lg">
+		<input style="float:right;"  type='submit' value='Log in' class="btn btn-success btn-lg">
  </div>
                             </div>
                             

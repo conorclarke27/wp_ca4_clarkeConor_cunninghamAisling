@@ -1,33 +1,28 @@
-<?php
-
-return function($req, $res) {
+<?php return function($req, $res) {
+    
+    require('./models/User.php');
+    $req->sessionStart();
 
     $db = \Rapid\Database::getPDO();
-
-    require('./models/Coffees.php');
-    $coffees = Coffee::findAll($db);
-
-    
-    require('./models/Users.php');
-    
+    $email = $req->body('email');
     $userInput = $req->body('password');
     
-    $user = User::findOneByEmail($req->body('email'),$db);
+    $user = User::findOneByEmail($email,$db);
     $userPassword =  $user->getPassword();
     
     $valid       = password_verify($userInput,$userPassword);
     
     if($valid)
     {
-        $res->render('main', 'view-coffees', [
-            'pageTitle' => 'View Coffees',
-            'viewAllCoffees' => $coffees
-        ]);
+        $req->sessionSet('LOGGED_IN',TRUE);
+        $res->redirect('/');
     
     }
     else
     {
-        echo 'Passwords do not match';
+        $req->sessionSet('LOGGED_IN',FALSE);
+        
+        $res->redirect('/user-login');
     }
 }
 

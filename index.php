@@ -33,15 +33,18 @@
   $app->POST('/edit-users',       'EditUserPost');
   $app->GET('/edit-userTypes',    'EditUserTypeGet');
   $app->POST('/edit-userTypes',   'EditUserTypePost');
-  $app->GET('/user-login',        'LogInGet');
-  $app->POST('/user-login',       'LogInPost');
   $app->GET('/DeleteCoffee',      'DeleteCoffee');
   $app->GET('/DeleteOrder',       'DeleteOrder');
   $app->GET('/DeleteUser',        'DeleteUser');
   $app->GET('/DeleteUserType',    'DeleteUserType');
 
-  $app->POST('/ShoppingCart/add',      'ShoppingCart');
+  $app->GET('/api/Users',      'api/Users');
+  $app->POST('/api/Users',      'api/Users');
+  $app->POST('/api/ShoppingCart',      'api/ShoppingCart');
 
+  $app->GET('/user-login',        'LogInGet');
+  $app->POST('/user-login',       'LogInPost');
+  
   // Process the request
   $app->dispatch();
   }

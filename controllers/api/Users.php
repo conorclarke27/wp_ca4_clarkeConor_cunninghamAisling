@@ -13,35 +13,51 @@
  // If data was received, add an ID and send back (as JSON)
   if ($JSONBody) 
   {
-    $user1 = User::findOneByEmail($JSONBody['email'],$db);
+    $user = User::findOneByEmail($JSONBody['email'],$db);
 
-    if($user1->getEmail() == $JSONBody['email'])
+    $password = $JSONBody['password1'];
+
+    if($user== NULL)
     {
-      echo json_encode(['message' => 'Fail']);
-    }
-    
-    $userPassword =  $user1->getPassword();
+      if($password == $JSONBody['password2'] )
+      {
+        $regex = "/(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[\W])^.*/";
 
-    $userInput = $JSONBody['password'];
-
-    $valid       = password_verify($userInput,$userPassword);
-    
-    if($valid)
-    {
-      echo json_encode(['message' => 'Success']);
+        if (preg_match($regex, $password))
+        {
+          if($JSONBody['userType'] == '2')
+          {
+             if(!($password==("nimdA321!!")))
+             {
+              
+              echo json_encode(['message' => 'Fail - Not admin password']);
+             }
+          }
+          echo json_encode(['message' => 'Success']);
+        }
+        else
+        {
+          echo json_encode(['message' => 'Fail - Weak Password']);
+        }
+        
+      }
+      else 
+      {
+          echo json_encode(['message' => 'Passwords dont match']);
+      }
+     
     }
     else 
     {
-      //http_response_code(400);
-      echo json_encode(['message' => 'Fail']);
+      echo json_encode(['message' => 'Email already exists']);
     }
+   
   }
 
   // Otherwise, return an error
   else 
   {
-    //http_response_code(400);
-    echo json_encode(['message' => 'Fail']);
+    echo json_encode(['message' => 'No data received']);
   }
 }
 

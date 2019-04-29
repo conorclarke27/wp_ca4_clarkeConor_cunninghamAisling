@@ -12,9 +12,10 @@
   <div class="col-sm-3">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><?= $userType->getTypeName() ?></div></h5>
+        <h5 class="card-title">User Type: <?= $userType->getTypeName() ?></h5>
         <p class="card-text">Type ID: <?=  $userType->getTypeId() ?> </p>
-        <div class="card-footer" style="height:150px;">
+        </div>
+        <div class="card-footer">
         <a class='btn btn-success btn-xs' href="edit-userTypes?type_id=<?= $userType->getTypeId() ?>"> Edit</a>
         <a  class="btn btn-danger btn-xs" href="DeleteUserType?type_id=<?= $userType->getTypeId() ?>">Delete</a>
         

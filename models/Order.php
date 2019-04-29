@@ -1,3 +1,5 @@
+<?php require_once('./lib/utils/ModelUtils.php');?>
+
 <?php class Order {
 
 private $order_id;
@@ -6,7 +8,7 @@ private $coffee_id;
 
 public function __construct($args) {
   if (!is_array($args)) {
-    throw new Exception('Coffees constructor requires an array');
+    throw new Exception('Order constructor requires an array');
   }
   
   $this->setOrderID($args['order_id'] ?? NULL);
@@ -31,9 +33,9 @@ public function setOrderID($order_id) {
     return;
   }
 
-  // if(!ModelUtils::isIdValid($order_id)) {
-  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  // }
+  if(!ModelUtils::isValidId($order_id)) {
+    throw new Exception('Order ID for Order object must be positive numeric');
+  }
   $this->order_id = $order_id;
 }
 
@@ -47,9 +49,9 @@ public function setUserID($user_id) {
     return;
   }
 
-  // if(!ModelUtils::isIdValid($user_id)) {
-  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  // }
+  if(!ModelUtils::isValidId($user_id)) {
+    throw new Exception('User ID for Order object must be positive numeric');
+  }
   $this->user_id = $user_id;
 }
 
@@ -63,9 +65,9 @@ public function setCoffeeID($coffee_id) {
     return;
   }
 
-  // if(!ModelUtils::isIdValid($coffee_id)) {
-  //   throw new Exception('Coffee ID for Coffee object must be positive numeric');
-  // }
+  if(!ModelUtils::isValidId($coffee_id)) {
+    throw new Exception('Coffee ID for Order object must be positive numeric');
+  }
   $this->coffee_id = $coffee_id;
 }
 
@@ -77,7 +79,7 @@ public function setCoffeeID($coffee_id) {
 
 public function insert($pdo, $order) {
   if(!($pdo instanceof PDO)) {
-    throw new Exception('Invalid PDO object for Coffee_Order insert');
+    throw new Exception('Invalid PDO object for Order insert');
   }
   
   if($order->getOrderID() === NULL) {
@@ -100,7 +102,7 @@ public function insert($pdo, $order) {
 
 public function update($pdo, $order) {
   if(!($pdo instanceof PDO)) {
-    throw new Exception('Invalid PDO object for Coffee_Order update');
+    throw new Exception('Invalid PDO object for Order update');
   }
 
   $stt = $pdo->prepare('UPDATE coffee_orders SET user_id=:user_id, coffee_id=:coffee_id WHERE order_id=:order_id LIMIT 1');
@@ -116,11 +118,11 @@ public function update($pdo, $order) {
 public function delete($pdo, $order) {
 
   if(!($pdo instanceof PDO)) {
-    throw new Exception('Invalid PDO object for Coffee_Orders delete');
+    throw new Exception('Invalid PDO object for Order delete');
   }
 
   if($order->getOrderID() === NULL) {
-    throw new Exception('Cannot delete a transient Coffee_Orders Object');
+    throw new Exception('Cannot delete a transient Order Object');
   }
 
   $stt = $pdo->prepare('DELETE FROM coffee_orders WHERE order_id=:order_id LIMIT 1');
@@ -147,7 +149,7 @@ public function delete($pdo, $order) {
 public static function findAll($pdo) {
 
   if(!($pdo instanceof PDO)) {
-    throw new Exception('Invalid PDO object for Coffee findAll');
+    throw new Exception('Invalid PDO object for Order findAll');
   }
 
   $stt = $pdo->prepare('SELECT order_id, user_id, coffee_id FROM coffee_orders');
@@ -166,12 +168,12 @@ public static function findAll($pdo) {
 public static function findOneById($db, $order_id) {
 
   if(!($db instanceof PDO)) {
-    throw new Exception('Invalid PDO object for Coffee findOneById');
+    throw new Exception('Invalid PDO object for Order findOneById');
   }
 
-  // if(!  ModelUtils::isValidId($coffee_id)) {
-  //   throw new Exception('Coffee ID for findOneById must be positive numeric');
-  // }
+  if(!ModelUtils::isValidId($order_id)) {
+    throw new Exception('Order ID for findOneById must be positive numeric');
+  }
 
   $stt = $db->prepare('SELECT order_id, user_id, coffee_id FROM coffee_orders WHERE order_id = :order_id LIMIT 1');
   $stt->execute([

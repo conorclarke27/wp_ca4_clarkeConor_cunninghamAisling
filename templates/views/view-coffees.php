@@ -1,15 +1,6 @@
-<h2></h2>
 <? require('./models/ShoppingCart.php');?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    </head>
-    <body>
-
-    <div class="row">
+    
+    <div class="row" style="margin-top: 20px;">
     <?php foreach ($locals['viewAllCoffees'] as $coffee) {
                                 ?>
   <div class="col-sm-3">
@@ -48,8 +39,6 @@
 
                 </div>
 </div>
-</body>
-</html>
 
 <script>
     $(document).ready(function () {

@@ -20,10 +20,14 @@ window.onload = function()
 
             //get data
             const user = {
-                email : document.querySelector("#email").value,
+                userType  : document.querySelector("#type_id").value,
+                name      : document.querySelector("#username").value,
+                email     : document.querySelector("#email").value,
                 password1 : document.querySelector("#password").value,
                 password2 : document.querySelector("#password2").value,
-                userType : document.querySelector("#type_id").value
+                supplier  : document.querySelector("#supplier_name").value,
+
+                
 
             };
 
@@ -46,13 +50,9 @@ window.onload = function()
                     {
                         console.log("Overall Success");
                     }
-                    else if (data["message"]=="Fail")
-                    {
-                        console.log("Overall failure");
-                    }
                     else
                     {
-                        console.log("Overall failure");
+                        console.log(data);
                     }
             });
 

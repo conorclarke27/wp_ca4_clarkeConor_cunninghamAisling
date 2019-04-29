@@ -17,7 +17,7 @@
       <div class="card-body">
         <h5 class="card-title">Welcome! Please fill out our sign up form</div></h5>
         <p class="card-text">
-        <form action='' method='post'>
+        <form id='signup_form' action='' method='post'>
                             <div class="col-sm-10">
                             <label for="type_id">Type Name:</label>
                             <select name="type_id" id="type_id" class="form-control">

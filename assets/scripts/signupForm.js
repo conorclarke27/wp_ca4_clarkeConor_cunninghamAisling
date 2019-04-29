@@ -1,17 +1,17 @@
 window.onload = function()
 {
     //ref to form
-    const loginForm = document.querySelector('#signup_form');
+    const signup_form = document.querySelector('#signup_form');
 
     //if login exists
-    if(loginForm)
+    if(signup_form)
     {
 
-        loginForm.addEventListener('input', event => {
+        signup_form.addEventListener('input', event => {
             console.log(event.target.value);
         });
 
-        loginForm.addEventListener('submit',event =>{
+        signup_form.addEventListener('submit',event =>{
 
 
             console.log("Hello");
@@ -21,7 +21,9 @@ window.onload = function()
             //get data
             const user = {
                 email : document.querySelector("#email").value,
-                password : document.querySelector("#password").value
+                password1 : document.querySelector("#password").value,
+                password2 : document.querySelector("#password2").value,
+                userType : document.querySelector("#type_id").value
 
             };
 

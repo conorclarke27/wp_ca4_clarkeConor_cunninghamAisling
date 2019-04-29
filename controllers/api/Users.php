@@ -14,6 +14,11 @@
   if ($JSONBody) 
   {
     $user1 = User::findOneByEmail($JSONBody['email'],$db);
+
+    if($user1->getEmail() == $JSONBody['email'])
+    {
+      echo json_encode(['message' => 'Fail']);
+    }
     
     $userPassword =  $user1->getPassword();
 

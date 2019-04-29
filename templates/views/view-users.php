@@ -1,4 +1,4 @@
-
+    <h2>Users</h2>
     <div class="row" style="margin-top: 20px;">
     <?php foreach ($locals['viewAllUsers'] as $user) {
                                 ?>

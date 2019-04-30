@@ -7,6 +7,8 @@
 
   $form_was_posted = [];
 
+  $form_was_posted = $req->body('user_id') !== NULL;
+
   $user_id = FormUtils::getPostInt($req->body('user_id'));
   $coffee_id = FormUtils::getPostInt($req->body('coffee_id'));
 

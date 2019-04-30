@@ -1,8 +1,17 @@
 <?php return function($req, $res) {
 $req->sessionStart();
+$admin = $req->session("Admin");
+
+if($admin)
+{
   $res->render('main', 'add-coffees', [
     'pageTitle' => 'Add Coffees'
-    // 'successMessage' => $req->query('success') ? 'Successfully added New Coffee' : ''
+    
   ]);
+}
+else
+{
+  $res->render('main', '404', []);
+}
 
 } ?>

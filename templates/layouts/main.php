@@ -45,6 +45,7 @@
                 </ul>
                 <form class="form-inline my-2 my-md-0">
                     <?php if ($_SESSION['LOGGED_IN'] === TRUE || $_SESSION['Admin'] === TRUE ) { ?>
+                    <a class="nav-link"style="color:white;">Hi,<?=$_SESSION['Name'];?></a>
                     <a class="nav-link"style="color:white;" href="<?= SITE_BASE_DIR ?>/logout"><span class = "fas fa-mug-hot"></span> Logout</a>
                     <a class="nav-link disabled" href=''><span class="fas fa-shopping-cart"></span> Cart <span class="badge badge-secondary">0</a>
 

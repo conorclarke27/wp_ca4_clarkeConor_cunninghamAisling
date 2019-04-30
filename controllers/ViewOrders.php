@@ -4,7 +4,11 @@
   $db = \Rapid\Database::getPDO();
   require('./models/Order.php');
 
-  $orders = Order::findAll($db);
+
+
+  $user = $_SESSION['Id'];
+  //$orders = Order::findAll($db);
+  $orders= Order::findAllByUserID($db,$user);
 
   $res->render('main', 'view-orders', [
       'pageTitle' => 'View Orders',

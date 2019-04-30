@@ -12,6 +12,7 @@
     if(!($user->getUserId() === NULL))
     {
         $userType = $user->getUserType();
+        $name     = $user->getUsername();
         if($userType == '2')
         {
             $userPassword =  $user->getPassword();
@@ -19,6 +20,7 @@
             if($valid)
             {
                 $req->sessionSet('LOGGED_IN',TRUE);
+                $req->sessionSet('Name',$name);
                 $req->sessionSet('Admin',TRUE);
                 $res->redirect('/admin-menu');
             }

@@ -6,9 +6,7 @@ window.onload = function()
     //if login exists
     if(signup_form)
     {
-        //signup_form.addEventListener('input', event => {
-        //    console.log(event.target.value);
-        //});
+        
 
         signup_form.addEventListener('submit',event =>{
             
@@ -17,7 +15,6 @@ window.onload = function()
 
             //get data
             const user = {
-                userType  : document.querySelector("#type_id").value,
                 name      : document.querySelector("#username").value,
                 email     : document.querySelector("#email").value,
                 password1 : document.querySelector("#password").value,
@@ -46,7 +43,7 @@ window.onload = function()
                     }
                     else
                     {
-                        console.log(data);
+                        console.log(data["message"]);
                     }
             });
 

@@ -23,6 +23,7 @@
         {
             $req->sessionSet('LOGGED_IN',TRUE);
             $req->sessionSet('Name', $name);
+            $req->sessionSet('Id', $id);
             $res->redirect('/');
     
         }

@@ -3,6 +3,10 @@
   $db = \Rapid\Database::getPDO();
   require('./models/UserType.php');
 
+  $admin = $req->session("Admin");
+
+  if($admin)
+  {
   $type = new UserType([
     'typename' => $req->body('typename')
   ]);
@@ -13,5 +17,10 @@
     'pageTitle' => 'Add User Types',
     'type'   => $type
   ]);
-
-} ?>
+}
+else
+{
+    $res->render('main', '404', []);
+}
+}
+ ?>

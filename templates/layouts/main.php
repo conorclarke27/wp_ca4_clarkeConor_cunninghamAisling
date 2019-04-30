@@ -24,22 +24,23 @@
         <div class="collapse navbar-collapse" id="navbarsExample07">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="<?= SITE_BASE_DIR ?>/">Home</a>
+              <a class="nav-link" href="<?= SITE_BASE_DIR ?>/"><span class="fas fa-home"></span> Home</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="<?= SITE_BASE_DIR ?>/view-coffees">Products</a>
+              <a class="nav-link" href="<?= SITE_BASE_DIR ?>/view-coffees"><span class = "fas fa-mug-hot"></span> Products</a>
             </li>
             <li class="nav-item active dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-users"></span> Users</a>
               <div class="dropdown-menu" aria-labelledby="dropdown07">
                 <a class="dropdown-item" href='<?= SITE_BASE_DIR ?>/add-user'>Sign Up</a>
                 <a class="dropdown-item" href='<?= SITE_BASE_DIR ?>/user-login' >Log In</a>
+                <a class="dropdown-item" href='<?= SITE_BASE_DIR ?>/admin-login' >Admin</a>
               </div>
             </li>
             
           </ul>
           <form class="form-inline my-2 my-md-0">
-          <a class="nav-link disabled" href=''>Cart <span class="badge badge-secondary">0</a>
+          <a class="nav-link disabled" href=''><span class="fas fa-shopping-cart"></span> Cart <span class="badge badge-secondary">0</a>
           </form>
         </div>
       </div>

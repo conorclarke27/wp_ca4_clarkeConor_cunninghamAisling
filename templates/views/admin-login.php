@@ -1,0 +1,41 @@
+<h2></h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+    <body>
+
+    <div class="row">
+    <div class="col-sm-1"></div>
+<div class="col-sm-9">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-user-shield"></i> Hello admin! Please log in</div></h5>
+        <p class="card-text">
+            <form action='' method='post'>
+                           <div class="col-sm-8">
+                                <label for='email'>Admin Email:</label>
+                                <input type='email' id='email' name='email' value='<?= $email['value'] ?>' class="form-control">
+                                </div>
+                                <div class="col-sm-8">
+                                <label for='password'>Password:</label>
+                                <input type='password' id='password' name='password' value='<?= $password ?>' class="form-control">
+                            </div>
+                            <div class="row">
+ 		<div class="col-sm-11">
+		<input style="float:right;"  type='submit' value='Log in' class="btn btn-success btn-lg">
+ </div>
+                            </div>
+                            
+</form>
+       </p>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  </body>
+</html>

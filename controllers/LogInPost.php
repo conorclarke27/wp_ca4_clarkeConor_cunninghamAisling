@@ -8,17 +8,21 @@
     $userInput = $req->body('password');
     
     $user = User::findOneByEmail($email,$db);
+    
 
 
     if(!($user->getUserId() === NULL))
     {
         $userPassword =  $user->getPassword();
+        $name         =  $user->getUsername();
+        $id           =  $user->getUserId();
     
         $valid       = password_verify($userInput,$userPassword);
     
         if($valid)
         {
             $req->sessionSet('LOGGED_IN',TRUE);
+            $req->sessionSet('Name', $name);
             $res->redirect('/');
     
         }

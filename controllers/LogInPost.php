@@ -26,11 +26,8 @@
     }
     else
     {
-        
-    print_r($user);
-        // $req->sessionSet('LOGGED_IN',FALSE);
-        
-        // $res->redirect('/user-login');
+        $req->sessionSet('LOGGED_IN',FALSE);
+        $res->redirect('/user-login');
     }
     
 }

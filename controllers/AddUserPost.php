@@ -1,4 +1,6 @@
 <?php return function($req,$res){
+    $req->sessionStart();
+    
 
     $db = \Rapid\Database::getPDO();
     require('./models/User.php');
@@ -13,6 +15,7 @@
             ]);
         
             User::insert($db,$user);
+            $req->sessionSet('LOGGED_IN',TRUE);
             $res->redirect('/view-coffees');
         
     

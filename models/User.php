@@ -272,7 +272,7 @@
       throw new Exception('user ID for findOneByEmail must be positive numeric');
     }
   
-    $stt = $db->prepare('SELECT user_id,type_id,password, email FROM users WHERE email= :email LIMIT 1');
+    $stt = $db->prepare('SELECT * FROM users WHERE email= :email LIMIT 1');
     $stt->execute([
       'email' => $email
     ]);

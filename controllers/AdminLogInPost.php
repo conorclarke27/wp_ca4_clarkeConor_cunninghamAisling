@@ -18,7 +18,7 @@
             $valid       = password_verify($userInput,$userPassword);
             if($valid)
             {
-                $req->sessionSet('LOGGED_IN',$userId);
+                $req->sessionSet('LOGGED_IN',TRUE);
                 $req->sessionSet('Admin',TRUE);
                 $res->redirect('/admin-menu');
             }

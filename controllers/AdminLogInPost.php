@@ -8,10 +8,10 @@
     $userInput = $req->body('password');
     
     $user = User::findOneByEmail($email,$db);
-    if(!($user==NULL))
+    
+    if(!($user->getUserId() === NULL))
     {
         $userType = $user->getUserType();
-        $userId= $user->getUserId();
         if($userType == '2')
         {
             $userPassword =  $user->getPassword();
@@ -20,21 +20,16 @@
             {
                 $req->sessionSet('LOGGED_IN',$userId);
                 $req->sessionSet('Admin',TRUE);
-                $res->redirect('/');
+                $res->redirect('/admin-menu');
             }
-        }
-        else
-        {
-            echo('Not an admin');
         }
         
         
     }
     else
     {
-       
         $req->sessionSet('LOGGED_IN',FALSE);
-        $res->redirect('/user-login');
+        echo('User null');
     }
 
     

@@ -13,7 +13,7 @@
  // If data was received, add an ID and send back (as JSON)
   if ($JSONBody) 
   {
-    if(!($JSONBody['userType'] == NULL || $JSONBody['name']== NULL || $JSONBody['email']== NULL || $JSONBody['password1'] == NULL || $JSONBody['password2'] == NULL ))
+    if(!($JSONBody['name']== NULL || $JSONBody['email']== NULL || $JSONBody['password1'] == NULL || $JSONBody['password2'] == NULL ))
     {
 
     $user = User::findOneByEmail($JSONBody['email'],$db);
@@ -28,14 +28,6 @@
 
         if (preg_match($regex, $password))
         {
-          if($JSONBody['userType'] == '2')
-          {
-             if(!($password==("nimdA321!!")))
-             {
-              
-              echo json_encode(['message' => 'Fail - Not admin password']);
-             }
-          }
           echo json_encode(['message' => 'Success']);
         }
         else

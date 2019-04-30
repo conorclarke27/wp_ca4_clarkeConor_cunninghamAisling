@@ -40,6 +40,7 @@
 
   $app->GET('/api/Users',      'api/Users');
   $app->POST('/api/Users',      'api/Users');
+  $app->GET('/api/ShoppingCart',      'api/ShoppingCart');
   $app->POST('/api/ShoppingCart',      'api/ShoppingCart');
 
   $app->GET('/user-login',        'LogInGet');

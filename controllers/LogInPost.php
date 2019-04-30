@@ -8,22 +8,31 @@
     $userInput = $req->body('password');
     
     $user = User::findOneByEmail($email,$db);
-    $userPassword =  $user->getPassword();
-    
-    $valid       = password_verify($userInput,$userPassword);
-    
-    if($valid)
+
+
+    if(!($user->getUserId() === NULL))
     {
-        $req->sessionSet('LOGGED_IN',TRUE);
-        $res->redirect('/');
+        $userPassword =  $user->getPassword();
+    
+        $valid       = password_verify($userInput,$userPassword);
+    
+        if($valid)
+        {
+            $req->sessionSet('LOGGED_IN',TRUE);
+            $res->redirect('/');
+    
+        }
     
     }
     else
     {
-        $req->sessionSet('LOGGED_IN',FALSE);
         
-        $res->redirect('/user-login');
+    print_r($user);
+        // $req->sessionSet('LOGGED_IN',FALSE);
+        
+        // $res->redirect('/user-login');
     }
+    
 }
 
 

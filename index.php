@@ -44,6 +44,10 @@
 
   $app->GET('/user-login',        'LogInGet');
   $app->POST('/user-login',       'LogInPost');
+
+  $app->GET('/admin-login',        'AdminLogInGet');
+  $app->GET('/admin-menu',        'AdminMenu');
+  $app->POST('/admin-login',       'AdminLogInPost');
   
   // Process the request
   $app->dispatch();

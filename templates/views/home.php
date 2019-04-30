@@ -38,11 +38,11 @@
   </a>
 </div>
 
-<div class="container jumbotron" style=" margin-top: 20px; background-image: url('./assets/images/k.jpg'); width: 100%;">
+<div class="container jumbotron" style=" margin-top: 20px; background-image: url('./assets/images/k.jpg'); background-size: cover;">
     <div class="block">
       <div class="row">
         <div class="span4">
-          <img src="./assets/images/kenco-smooth.png" style="float: left; margin: 10px;"/>
+          <img src="./assets/images/kenco-smooth.png" style="float: left; margin: 10px; color: white;"/>
           <div class="content-heading"><h3>Experience The Dark Roast </h3></div>
           <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
           <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>

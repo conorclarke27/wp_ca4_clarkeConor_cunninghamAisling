@@ -18,15 +18,6 @@
         <p class="card-text">
         <form id='signup_form' action='' method='post'>
             <div class="col-sm-10">
-                <label for="type_id">Type Name:</label>
-                <select name="type_id" id="type_id" class="form-control">
-                <option value="" disabled selected>Select...</option>
-                <?php foreach($types as $type) {?>                                                                                                           
-                <option value="<?= $type->getTypeId()?>"><?= $type->getTypeName()?> </option>
-                <?php } ?>
-                </select>
-            </div>
-            <div class="col-sm-10">
                 <label for='username'>Username:</label>
                 <input type='text' id='username' name='username' value='<?= $username['value'] ?>' class="form-control">
             </div>

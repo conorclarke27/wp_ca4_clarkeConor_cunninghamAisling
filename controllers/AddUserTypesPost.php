@@ -16,7 +16,6 @@
   $res->render('main', 'add-userTypes', [
     'pageTitle' => 'Add User Types',
     'type'   => $type
-    // 'successMessage' => $req->query('success') ? 'Successfully added New Coffee' : ''
   ]);
 }
 else

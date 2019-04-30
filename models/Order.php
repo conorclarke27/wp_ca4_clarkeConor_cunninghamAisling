@@ -165,6 +165,28 @@ public static function findAll($pdo) {
 
 }
 
+public static function findAllByUserID($pdo,$user_id) {
+
+  if(!($pdo instanceof PDO)) {
+    throw new Exception('Invalid PDO object for Order findAllByUserID');
+  }
+
+  $stt = $pdo->prepare('SELECT * FROM coffee_orders WHERE user_id = :user_id');
+  $stt->execute([
+    'user_id' => $user_id
+  ]);
+
+  $coffee_orders = [];
+
+  foreach($stt->fetchAll() as $row) {
+    array_push($coffee_orders, new Order($row));
+  }
+
+  return $coffee_orders;
+
+
+}
+
 public static function findOneById($db, $order_id) {
 
   if(!($db instanceof PDO)) {

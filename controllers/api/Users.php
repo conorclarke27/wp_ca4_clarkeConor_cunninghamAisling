@@ -13,7 +13,8 @@
  // If data was received, add an ID and send back (as JSON)
   if ($JSONBody) 
   {
-    if(!($JSONBody['userType'] == NULL || $JSONBody['name']== NULL || $JSONBody['email']== NULL || $JSONBody['password1'] == NULL || $JSONBody['password2'] == NULL )
+    if(!($JSONBody['userType'] == NULL || $JSONBody['name']== NULL || $JSONBody['email']== NULL || $JSONBody['password1'] == NULL || $JSONBody['password2'] == NULL ))
+    {
 
     $user = User::findOneByEmail($JSONBody['email'],$db);
 
@@ -55,6 +56,12 @@
     }
    
   }
+  else 
+  {
+    echo json_encode(['message' => 'Required Fields must be entered']);
+  }
+  
+
 
   // Otherwise, return an error
   else 

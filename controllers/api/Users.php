@@ -60,10 +60,8 @@
   {
     echo json_encode(['message' => 'Required Fields must be entered']);
   }
-  
-
-
-  // Otherwise, return an error
+}
+// Otherwise, return an error
   else 
   {
     echo json_encode(['message' => 'No data received']);

@@ -31,7 +31,8 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="<?= SITE_BASE_DIR ?>/view-coffees"><span class = "fas fa-mug-hot"></span> Products</a>
                     </li>
-                    <li class="nav-item active dropdown">
+                    <?php if (!($_SESSION['LOGGED_IN'] === TRUE || $_SESSION['Admin'] === TRUE )) { ?>
+                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle"  id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-users"></span> Users</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown07">
                             <a class="dropdown-item" href='<?= SITE_BASE_DIR ?>/add-user'>Sign Up</a>
@@ -39,13 +40,12 @@
                             <a class="dropdown-item" href='<?= SITE_BASE_DIR ?>/admin-login' >Admin</a>
                         </div>
                     </li>
+                    <?php }?>
 
                 </ul>
                 <form class="form-inline my-2 my-md-0">
-                    <?php if ($_SESSION['LOGGED_IN'] === TRUE) { ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?= SITE_BASE_DIR ?>/logout"><span class = "fas fa-mug-hot"></span> Logout</a>
-                    </li>
+                    <?php if ($_SESSION['LOGGED_IN'] === TRUE || $_SESSION['Admin'] === TRUE ) { ?>
+                    <a class="nav-link"style="color:white;" href="<?= SITE_BASE_DIR ?>/logout"><span class = "fas fa-mug-hot"></span> Logout</a>
                     <a class="nav-link disabled" href=''><span class="fas fa-shopping-cart"></span> Cart <span class="badge badge-secondary">0</a>
 
                     <?php } ?>

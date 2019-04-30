@@ -49,6 +49,8 @@
   $app->GET('/admin-menu',        'AdminMenu');
   $app->POST('/admin-login',       'AdminLogInPost');
   
+  $app->GET('/logout',        'Logout');
+  
   // Process the request
   $app->dispatch();
   }

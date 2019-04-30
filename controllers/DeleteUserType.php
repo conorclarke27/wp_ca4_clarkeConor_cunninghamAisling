@@ -1,4 +1,6 @@
-<?php
+<?php return function($req, $res) {
+  $req->sessionStart(); 
+    
     
   $db = \Rapid\Database::getPDO();
   require('./models/UserType.php');
@@ -9,5 +11,5 @@
   UserType::delete($db, $type);
 
   $res->redirect('/view-userTypes');
-
+}
 ?>

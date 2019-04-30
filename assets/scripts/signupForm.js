@@ -6,15 +6,12 @@ window.onload = function()
     //if login exists
     if(signup_form)
     {
-
-        signup_form.addEventListener('input', event => {
-            console.log(event.target.value);
-        });
+        //signup_form.addEventListener('input', event => {
+        //    console.log(event.target.value);
+        //});
 
         signup_form.addEventListener('submit',event =>{
-
-
-            console.log("Hello");
+            
             //dont submit
             event.preventDefault();
 
@@ -25,10 +22,7 @@ window.onload = function()
                 email     : document.querySelector("#email").value,
                 password1 : document.querySelector("#password").value,
                 password2 : document.querySelector("#password2").value,
-                supplier  : document.querySelector("#supplier_name").value,
-
-                
-
+                supplier  : document.querySelector("#supplier_name").value
             };
 
             ///fetch post call
@@ -48,7 +42,7 @@ window.onload = function()
                 {
                     if (data["message"]=="Success")
                     {
-                        console.log("Overall Success");
+                        signup_form.submit();
                     }
                     else
                     {

@@ -16,11 +16,11 @@
         <h5 class="card-title"><i class="fas fa-user-shield"></i> Hello admin! Please log in</div></h5>
         <p class="card-text">
             <form action='' method='post'>
-                           <div class="col-sm-10">
+                           <div class="col-sm-8">
                                 <label for='email'>Admin Email:</label>
                                 <input type='email' id='email' name='email' value='<?= $email['value'] ?>' class="form-control">
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-sm-8">
                                 <label for='password'>Password:</label>
                                 <input type='password' id='password' name='password' value='<?= $password ?>' class="form-control">
                             </div>

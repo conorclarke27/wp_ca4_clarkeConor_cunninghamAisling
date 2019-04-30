@@ -8,11 +8,11 @@
         <p class="card-text"> User ID: <?= $order->getUserID() ?></p>
         <p class="card-text"> Coffee ID: <?= $order->getCoffeeID() ?></p>
         <div class="card-footer" style="height:150px;">
-        <a  class='btn btn-success btn-xs' href='edit-orders?order_id=<?= $order->getOrderID() ?>'> Edit</a>
-        <a class="btn btn-danger btn-xs" href='DeleteOrder?order_id=<?= $order->getOrderID() ?>'>Delete</a>
+          <a  class='btn btn-success btn-xs' href='edit-orders?order_id=<?= $order->getOrderID() ?>'> Edit</a>
+          <a class="btn btn-danger btn-xs" href='DeleteOrder?order_id=<?= $order->getOrderID() ?>'>Delete</a>
+        </div>
       </div>
     </div>
   </div>
-  </div>
   <?php }?>
-   </div>
+  </div>

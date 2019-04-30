@@ -41,11 +41,17 @@
                         </div>
                     </li>
                     <?php }?>
+                    <?php if  ($_SESSION['Admin'] === TRUE ) { ?>
+                        <li class="nav-item active">
+                        <a class="nav-link" href="<?= SITE_BASE_DIR ?>/admin-menu"><span class="fas fa-user-cog"></span> Admin Menu</a>
+                    </li>
+                    <?php }?>
+                    
 
                 </ul>
                 <form class="form-inline my-2 my-md-0">
                     <?php if ($_SESSION['LOGGED_IN'] === TRUE || $_SESSION['Admin'] === TRUE ) { ?>
-                    <a class="nav-link"style="color:white;"><span class="far fa-user"></span> Hi,<?=$_SESSION['Name'];?></a>
+                    <a class="nav-link"style="color:white;"><span class="far fa-user"></span> Hi, <?=$_SESSION['Name'];?></a>
                     <a class="nav-link"style="color:white;" href="<?= SITE_BASE_DIR ?>/logout"><span class="fas fa-sign-out-alt"></span> Logout</a>
                     <a class="nav-link disabled" href=''><span class="fas fa-shopping-cart"></span> Cart <span class="badge badge-secondary">0</a>
 

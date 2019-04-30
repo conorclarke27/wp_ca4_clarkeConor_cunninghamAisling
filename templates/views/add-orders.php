@@ -32,11 +32,21 @@
             </div>
         </div>
     </form>
-   </p>
+    </p>
   </div>
 </div>
 </div>
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <?php foreach($locals['form_error_messages'] as $errors) { ?>
+    <p><?= $errors ?></p>
+  <?php } ?>
 </div>
+
 </body>
     
 </html>

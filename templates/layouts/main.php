@@ -46,6 +46,11 @@
                         <a class="nav-link" href="<?= SITE_BASE_DIR ?>/admin-menu"><span class="fas fa-user-cog"></span> Admin Menu</a>
                     </li>
                     <?php }?>
+                    <?php if  ($_SESSION['LOGGED_IN'] === TRUE ) { ?>
+                        <li class="nav-item active">
+                        <a class="nav-link" href="<?= SITE_BASE_DIR ?>/view-orders"><span class="far fa-credit-card"></span> My Orders</a>
+                    </li>
+                    <?php }?>
                     
 
                 </ul>

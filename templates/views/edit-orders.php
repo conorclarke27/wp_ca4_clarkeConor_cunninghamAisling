@@ -3,14 +3,13 @@
 <h2></h2>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    </head>
-    <body>
-
-      
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+   
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-9">
@@ -19,29 +18,27 @@
     <h5 class="card-title">Edit an order</div></h5>
     <p class="card-text">
     <form action='' method='post'>
-                            <div class="col-sm-8">
-                            <label for='user_id'>User ID:</label>
-                            <input type='text' id='user_id' name='user_id' value='<?= $order->getUserID(); ?>'class="form-control">
-                            </div>
-                            <div  class="col-sm-8">
-                            <label for="coffee_id">Coffee Name:</label>
-                            <select name="coffee_id" id="coffee_id" class="form-control">
-                            <option value="" disabled selected>Select...</option>
-                            <?php foreach($coffees as $coffee) {?>                                                                                                           
-                            <option value="<?= $coffee->getCoffeeId()?>"><?= $coffee->getCoffeeName()?> </option>
-                            <?php } ?>
-                            </select>
-                            </div>
-                            <p><br/></p>
-                            <div class="row">
-                            <div class="col-sm-11">
-                                <input style="float:right;" type='submit' value='Edit Order' class="btn btn-success btn-lg">
-                            </div>
-                            </div>
-                        </form>
+        <div class="col-sm-8">
+            <label for='user_id'>User ID:</label>
+            <input type='text' id='user_id' name='user_id' value='<?= $order->getUserID(); ?>'class="form-control">
+        </div>
+        <div  class="col-sm-8">
+            <label for="coffee_id">Coffee Name:</label>
+            <select name="coffee_id" id="coffee_id" class="form-control">
+                <option value="" disabled selected>Select...</option>
+                <?php foreach($coffees as $coffee) {?>                                                                                                           
+                    <option value="<?= $coffee->getCoffeeId()?>"><?= $coffee->getCoffeeName()?> </option>
+                <?php } ?>
+            </select>
+        </div>
+        <p><br/></p>
+        <div class="row">
+        <div class="col-sm-11">
+            <input style="float:right;" type='submit' value='Edit Order' class="btn btn-success btn-lg">
+        </div>
+        </div>
+    </form>
    </p>
-
-    
   </div>
 </div>
 </div>

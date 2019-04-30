@@ -10,8 +10,8 @@
         <p class="card-text">Email: <?= $user->getEmail() ?> </p>
         <p class="card-text">Supplier:  <?=$user->getSupplier_Name() ?> </p>
         <div class="card-footer">
-        <a  class='btn btn-success btn-xs' href="edit-users?user_id=<?= $user->getUserId() ?>"> Edit</a>
-        <a  class="btn btn-danger btn-xs" href="DeleteUser?user_id=<?= $user->getUserId() ?>">Delete</a>
+          <a  class='btn btn-success btn-xs' href="edit-users?user_id=<?= $user->getUserId() ?>"> Edit</a>
+          <a  class="btn btn-danger btn-xs" href="DeleteUser?user_id=<?= $user->getUserId() ?>">Delete</a>
         </div>
       </div>
     </div>

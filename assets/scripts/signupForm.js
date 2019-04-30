@@ -17,7 +17,6 @@ window.onload = function()
 
             //get data
             const user = {
-                userType  : document.querySelector("#type_id").value,
                 name      : document.querySelector("#username").value,
                 email     : document.querySelector("#email").value,
                 password1 : document.querySelector("#password").value,

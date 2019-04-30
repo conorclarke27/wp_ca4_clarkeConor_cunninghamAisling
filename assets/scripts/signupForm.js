@@ -6,9 +6,7 @@ window.onload = function()
     //if login exists
     if(signup_form)
     {
-        //signup_form.addEventListener('input', event => {
-        //    console.log(event.target.value);
-        //});
+        
 
         signup_form.addEventListener('submit',event =>{
             
@@ -45,7 +43,7 @@ window.onload = function()
                     }
                     else
                     {
-                        console.log(data);
+                        console.log(data["message"]);
                     }
             });
 

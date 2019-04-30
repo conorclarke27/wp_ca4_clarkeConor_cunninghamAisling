@@ -1,13 +1,31 @@
-<div id="carouselHomePage" style="width: 100%;" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carouselHomePage" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselHomePage" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselHomePage" data-slide-to="1"></li>
+    <li data-target="#carouselHomePage" data-slide-to="2"></li>
+  </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./assets/images/cof1.jpg" style="width: 100%; height:auto;" alt="...">
+      <img class="d-block w-100" src="./assets/images/cof3.jpg" class="image-fluid" style="width: 100%; height: 600px;" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="color: black; font-size: 2em;">
+        <h1>Get Rich quick</h1>
+        <p>The real coffee experts</p>
+      </div>
     </div>
     <div class="carousel-item">
-      <img src="./assets/images/cof2.jpg" class="img-fluid" style="width: 100%; height:auto;" alt="Responsive image">
+      <img class="d-block w-100" src="./assets/images/cof.jpg" class="image-fluid" style="width: 100%; height: 600px;" alt="Responsive image">
+      <div class="carousel-caption d-none d-md-block" style="color: white; font-size: 2em;">
+        <h1>Join the Fight</h1>
+        <p>Coffee VS Gangs</p>
+      </div>
     </div>
     <div class="carousel-item">
-      <img src="./assets/images/cof3.jpg" style="width: 100%; height:auto;" alt="...">
+      <img class="d-block w-100" src="./assets/images/man.png" class="image-fluid" style="width: 100%; height: 600px;" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="color: black; font-size: 2em;">
+        <h1>One thing leads to another</h1>
+        <p>Start the day with great taste</p>
+      </div>
+  </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselHomePage" role="button" data-slide="prev">
@@ -18,4 +36,28 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
+
+<div class="container jumbotron" style=" margin-top: 20px; background-image: url('./assets/images/k.jpg'); width: 100%;">
+    <div class="block">
+      <div class="row">
+        <div class="span4">
+          <img src="./assets/images/kenco-smooth.png" style="float: left; margin: 10px;"/>
+          <div class="content-heading"><h3>Experience The Dark Roast </h3></div>
+          <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+        </div>
+     </div>
+     <br/>
+      <div class="row" style="float: right; color: white;">
+        <div class="span4">
+          <img src="./assets/images/a.png"  style="float: right; margin: 10px;"/>
+          <div class="content-heading"><h3>Experience Nutty Hazelnut</h3></div>
+          <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+        </div>
+     </div>
+    </div>
 </div>

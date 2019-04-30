@@ -17,9 +17,11 @@
         data-suppliername="<?= $coffee->getSupplierName() ?>"
         data-price="<?= $coffee->getPrice() ?>">Add To Cart</a>
         <br> <br>
+
+        <?php if($locals["admin"]){?>
         <a style="float:right;" class="btn btn-success btn-xs" href='edit-coffees?coffee_id=<?= $coffee->getCoffeeId() ?>'> Edit </a>
         <a style="float:left;" class='btn btn-danger btn-xs' href='DeleteCoffee?coffee_id=<?= $coffee->getCoffeeId() ?>'> Delete</a>
-        </div>
+        <?php }?></div>
       </div>
     </div>
   </div>

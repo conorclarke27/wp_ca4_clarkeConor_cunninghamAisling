@@ -14,7 +14,7 @@ window.onload = function()
             event.preventDefault();
 
             //get data
-            const user = {
+            const order = {
                 name      : document.querySelector("#coffeename").value,
                 price     : document.querySelector("#price").value,
                 quantity  : document.querySelector("#quantity").value
@@ -24,12 +24,12 @@ window.onload = function()
             const fetchConfig = {
                 method : 'POST',
                 credentials : 'include',
-                body : JSON.stringify(user),
+                body : JSON.stringify(order),
                 headers : {'Content-type' : 'application/json; charset=UTF-8'}
             };
 
             //Post data to api/users(POST route)
-            fetch('api/Users', fetchConfig)
+            fetch('api/ShoppingCart', fetchConfig)
             .then(res => res.json())
             .then(data => console.log(data));
             

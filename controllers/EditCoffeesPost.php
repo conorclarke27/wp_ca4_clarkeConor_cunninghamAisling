@@ -5,7 +5,7 @@
   require('./models/Coffee.php');
   require('./lib/utils/FormUtils.php');
 
-  $form_was_posted = [];
+  $form_error_messages = [];
 
   $form_was_posted = $req->query('coffee_id') !== NULL;
 

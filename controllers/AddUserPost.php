@@ -1,9 +1,8 @@
 <?php return function($req,$res){
     $req->sessionStart();
-    
-
     $db = \Rapid\Database::getPDO();
     require('./models/User.php');
+    require('./lib/utils/FormUtils.php');
 
     $form_was_posted = [];
 
@@ -26,7 +25,7 @@
     // }
 
     if(!$form_was_posted || count($form_error_messages) > 0) {
-        $res->render('main', 'add-users', [
+        $res->render('main', 'add-user', [
           'pageTitle' => 'Add Users',
           'form_error_messages'   => $form_error_messages
         ]);

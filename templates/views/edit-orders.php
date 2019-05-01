@@ -20,7 +20,7 @@
     <form action='' method='post'>
         <div class="col-sm-8">
             <label for='user_id'>User ID:</label>
-            <input type='text' id='user_id' name='user_id' value='<?= $order->getUserID() ?>'class="form-control">
+            <input type='text' id='user_id' name='user_id' readonly="readonly" value='<?= $order->getUserID() ?>'class="form-control">
         </div>
         <div  class="col-sm-8">
             <label for="coffee_id">Coffee Name:</label>

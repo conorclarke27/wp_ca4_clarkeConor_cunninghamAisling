@@ -9,7 +9,7 @@
 
     $form_was_posted = $req->body('username') !== NULL;
 
-    $userType = FormUtils::getPostInt($req->body('type_id'));
+    $userType = FormUtils::getPostString($req->body('type_id'));
     $username = FormUtils::getPostString($req->body('username')); 
     $email = FormUtils::getPostEmail($req->body('email'));
     $supplier_name = FormUtils::getPostString($req->body('supplier_name'));
@@ -44,11 +44,15 @@
         }
 
         if(!$form_was_posted || count($form_error_messages) > 0) {
+            $user    = User::findOneByEmail($email['value'],$db);
             $res->render('main', 'edit-users', [
-              'pageTitle' => 'Edit Users',
-              'form_error_messages'   => $form_error_messages
+                'pageTitle' => 'Edit User',
+                'form_error_messages'   => $form_error_messages,
+                'user' => $user
             ]);
-        }
+          }
+        
+        
     
 
         else {

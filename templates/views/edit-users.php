@@ -1,4 +1,5 @@
-<?php $user = $locals['user']; ?>
+<?php $user = $locals['user'];?>
+
 <h2></h2>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@
 <div class="col-sm-9">
 <div class="card text-white bg-info mb-3">
   <div class="card-body">
-    <h5 class="card-title">Welcome! Please fill out our sign up form</div></h5>
+    <h5 class="card-title">Edit form</div></h5>
     <p class="card-text">
     <form action='' method='post'>
         <div class="col-sm-10">
@@ -28,7 +29,7 @@
         </div>
         <div class="col-sm-5">
             <label for='email'>Email:</label>
-            <input type='email' id='email' name='email' value='<?= $user->getEmail(); ?>' class="form-control">
+            <input type='email' id='email' name='email' value='<?= $user->getEmail(); ?>' readonly="readonly" class="form-control">
         </div>
         <div class="col-sm-5">
             <label for='password'>Password:</label>

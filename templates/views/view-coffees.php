@@ -16,7 +16,6 @@
                             <input style="height:30px; width:50px; float:right;" type='text' name='quantity' class="form-control quantity" id="quantity">
                             <a style="float:left;" class="btn btn-danger btn-xs add_to_cart" type='submit' id="submit" name="add_to_cart">Add To Cart</a>
                         <?php } else { ?>
-                        </div>
                           <div class="card-footer" style="height:100px;">
                             <h5>€<?= $coffee->getPrice() ?></h5>
                             <h5>You must log in or sign up to purchase</h5>

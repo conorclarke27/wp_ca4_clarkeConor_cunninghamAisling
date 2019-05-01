@@ -4,14 +4,16 @@
     require('./models/User.php');
     require('./lib/utils/FormUtils.php');
 
-    if(!$req->body('email') === NULL || !$req->body('password') === NULL) {
+    $error['error'] = "Invalid email or password";
+
+    if($req->body('email') !== NULL || $req->body('password') !== NULL) {
         $email = FormUtils::getPostEmail($req->body('email'));
         $userInput = $req->body('password');
         
-        if(!$email['is_valid'] || $email === NULL) {
-            $user = User::findOneByEmail($email,$db);
+        if(!$email['is_valid'] || $email !== NULL) {
+            $user = User::findOneByEmail($email['value'],$db);
     
-            if(!($user->getUserId() === NULL))
+            if($user !== NULL)
             {
                 $userType = $user->getUserType();
                 $name     = $user->getUsername();
@@ -32,14 +34,11 @@
             }
         }
     }
-   
-    else
-    {
-        $error['error'] = "Invalid email or password";
-        $req->sessionSet('LOGGED_IN',FALSE);
-        $res->render('main', 'admin-login', [
-            'form_error_messages' => $error
-        ]);
-    }
+
+    $req->sessionSet('LOGGED_IN',FALSE);
+    $res->render('main', 'admin-login', [
+        'form_error_messages' => $error
+    ]);
+
 
 } ?>

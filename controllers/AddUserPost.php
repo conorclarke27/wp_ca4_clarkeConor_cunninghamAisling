@@ -8,21 +8,17 @@
 
     $form_was_posted = $req->body('username') !== NULL;
 
-    $username = $req->body('username'); //ADD FORM VALIDATION HERE!!!!
-    $password = password_hash($req->body('password'),PASSWORD_BCRYPT,['cost' => 12]);
+    $username = FormUtils::getPostString($req->body('username')); 
+    $password1 = FormUtils::getPostPassword($req->body('password1'));
+    $password2 = FormUtils::getPostPassword($req->body('password2'));
     $email = FormUtils::getPostEmail($req->body('email'));
-    $supplier_name = $req->body('supplier_name');
+    $supplier_name = FormUtils::getPostString($req->body('supplier_name'));
     
-    //ADD ERROR MESSAGES HERE!!!!
 
     if (!$email['is_valid']) {
         $form_error_messages['email'] = 'Invalid Email';
     }
     
-    // ???? Don't know if this should be here because of admin?????
-    // if (!$supplier_name['is_valid']) {
-    //     $form_error_messages['supplier_name'] = 'Supplier required';
-    // }
 
     if(!$form_was_posted || count($form_error_messages) > 0) {
         $res->render('main', 'add-user', [
@@ -35,7 +31,7 @@
         $user = new User([
             'type_id' => 1,
             'username' => $username,
-            'password' => $password,
+            'password' => $passwordhash,
             'email'=> $email['value'],
             'supplier_name'=> $supplier_name
         ]);

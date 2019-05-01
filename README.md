@@ -30,6 +30,10 @@ There is also an admin log in section. The admin users control the edit,delete a
 ## Improvements
 There was some features which I would have wished to implement if I had more time:
 1. Get cart working through ajax
+2. Making the site look more attractive to a user
+3. Confirm on delete/edit for more security for admin users
+4. Error messages for the forms could be improved
+5. Use more images and more bootstrap
 
 ## Application
 - The home screen that exisitng and non existing users will be able to view

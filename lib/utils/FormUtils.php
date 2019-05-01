@@ -80,23 +80,10 @@ class FormUtils {
       return $raw_value;
     }
 
-    public static function getPostEmail($index, $allow_empty = false) {
-      $raw_value = FormUtils::getPostValue($index, NULL, FILTER_VALIDATE_EMAIL);
-
-      if ($raw_value['is_valid']) {
-
-        $raw_value['value'] = trim($raw_value['value']);
-
-        if (!$allow_empty && empty($raw_value['value'])) {
-            $raw_value['is_valid'] = false;
-        }
-        
-        //input must be like preg_match below
-        if(!preg_match("/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $raw_value['value'])) {
-            $raw_value['is_valid'] = false;
-        }
-      }
-      return $raw_value;
+    //built in method to check  that the email is of correct format and sanitize the email
+    public static function getPostEmail($index, $allow_empty = false) 
+    {
+        return FormUtils::getPostValue($index, FILTER_SANITIZE_EMAIL, FILTER_VALIDATE_EMAIL);
     }
 
     public static function getPostString($index, $allow_empty = false) {

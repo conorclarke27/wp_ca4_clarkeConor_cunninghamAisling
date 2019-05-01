@@ -5,7 +5,7 @@
   require('./models/Order.php');
   require('./lib/utils/FormUtils.php');
 
-  $form_was_posted = [];
+  $form_error_messages = [];
 
   $form_was_posted = $req->body('user_id') !== NULL;
 
@@ -35,10 +35,7 @@
   
     Order::insert($db, $order);
   
-    $res->render('main', 'add-orders', [
-      'pageTitle' => 'Add Orders',
-      'order'   => $order
-    ]);
+    $res->redirect('/view-orders');
   }
 
 } ?>

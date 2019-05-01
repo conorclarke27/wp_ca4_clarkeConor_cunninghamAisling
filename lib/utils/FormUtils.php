@@ -100,22 +100,4 @@ class FormUtils {
       return $raw_value;
     }
 
-    public static function getPostPassword($index, $allow_empty = false) {
-      $raw_value = FormUtils::getPostValue($index, NULL, FILTER_VALIDATE_EMAIL);
-
-      if ($raw_value['is_valid']) {
-
-        $raw_value['value'] = trim($raw_value['value']);
-
-        if (!$allow_empty && empty($raw_value['value'])) {
-            $raw_value['is_valid'] = false;
-        }
-        $regex = "/(?=^.{8,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[\W])^.*/";
-        //input must be like preg_match below
-        if(!preg_match($regex, $raw_value['value'])) {
-            $raw_value['is_valid'] = false;
-        }
-      }
-      return $raw_value;
-    }
 } ?>

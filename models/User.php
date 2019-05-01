@@ -129,9 +129,6 @@
       return;
     }
 
-    if(!ModelUtils::isValidName($supplier_name)) {
-      throw new Exception('Supplier Name does not match expected pattern, no numerics');
-    }
   
     $this->supplier_name = $supplier_name;
   }

@@ -3,16 +3,31 @@
   $req->sessionStart();
   $db = \Rapid\Database::getPDO();
   require('./models/Order.php');
+  $admin = $req->session("Admin");
+  $user = $req->session("Id");
 
-
-
-  $user = $_SESSION['Id'];
-  //$orders = Order::findAll($db);
-  $orders= Order::findAllByUserID($db,$user);
+  if($admin)
+  {
+    $orders = Order::findAll($db);
+    $res->render('main', 'view-orders', [
+      'pageTitle' => 'View Orders',
+      'viewAllOrders' => $orders
+    ]);
+  }
+  else if(!($user === NULL))
+  {
+    $orders= Order::findAllByUserID($_SESSION['Id'],$user);
 
   $res->render('main', 'view-orders', [
       'pageTitle' => 'View Orders',
       'viewAllOrders' => $orders
   ]);
+  } 
+  else
+  {
+    $res->render('main', '404', []);
+  }
+  
+  
 
 } ?>

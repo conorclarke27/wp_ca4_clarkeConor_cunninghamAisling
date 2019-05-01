@@ -4,7 +4,11 @@
   // Include the Rapid library
   require_once('lib/Rapid.php');
 
+  //used for local host
   define ('SITE_BASE_DIR','/wp_ca4_clarkeConor_cunninghamAisling');
+
+  //used for remote host
+  //define ('SITE_BASE_DIR','');
 
   // Create a new Router instance
   $app = new \Rapid\Router();

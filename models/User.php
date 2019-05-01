@@ -267,10 +267,10 @@
       throw new Exception('Invalid PDO object for user findOneByEmail');
     }
   
-    if(! ModelUtils::isValidEmail($email)) 
-    {
-      throw new Exception('user ID for findOneByEmail must be positive numeric');
-    }
+    // if(!ModelUtils::isValidEmail($email)) 
+    // {
+    //   throw new Exception('user email for findOneByEmail must be a valid email address');
+    // }
   
     $stt = $db->prepare('SELECT * FROM users WHERE email= :email LIMIT 1');
     $stt->execute([

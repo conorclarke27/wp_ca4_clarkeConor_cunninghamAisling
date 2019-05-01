@@ -9,14 +9,26 @@
     $form_was_posted = $req->body('username') !== NULL;
 
     $username = FormUtils::getPostString($req->body('username')); 
-    $password1 = FormUtils::getPostPassword($req->body('password1'));
-    $password2 = FormUtils::getPostPassword($req->body('password2'));
+    $password = $req->body('password1');
+    $confirmPassword = $req->body('password2');
+
+    if($password === $confirmPassword)
+    {
+        $password1 = FormUtils::getPostPassword($password);
+        $passwordhash = password_hash($password1,PASSWORD_BCRYPT,['cost' => 12]);
+    }
     $email = FormUtils::getPostEmail($req->body('email'));
     $supplier_name = FormUtils::getPostString($req->body('supplier_name'));
     
 
+    if (!$username['is_valid']) {
+        $form_error_messages['username'] = 'Please enter a valid username';
+    }
     if (!$email['is_valid']) {
-        $form_error_messages['email'] = 'Invalid Email';
+        $form_error_messages['email'] = 'Invalid Email must be in format joe@bloggs.com';
+    }
+    if (!$password1['is_valid']) {
+        $form_error_messages['password'] = 'Invalid Password must include a lower case, an upper case, a number and a special character';
     }
     
 

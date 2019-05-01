@@ -27,7 +27,7 @@
             </div>
             <div class="col-sm-5">
                 <label for='password'>Password:</label>
-                <input type='password' id='password' name='password' value='<?= $password ?>' class="form-control">
+                <input type='password' id='password' name='password1' value='<?= $password ?>' class="form-control">
             </div>
             <div class="col-sm-5">
                 <label for='password2'>Re-enter Password:</label>

@@ -8,6 +8,7 @@ Our website is designed to store information about coffees, users, user types an
 - [Improvements](#improvements)
 - [Application](#application)
 - [References](#references)
+- [Hosting Links](#hosting)
 
 
 ## Introduction
@@ -52,3 +53,7 @@ There was some features which I would have wished to implement if I had more tim
 - Our lecturer Shane Gavin has provided a starter project on this link :https://gitlab.comp.dkit.ie/gavins/  as built in class
 - Shane also provided youtube videos that were helpful to refresh the code during the easter holidays
 - For the front end frame work we have used Boostrap :https://getbootstrap.com/ and :https://jquery.com/
+
+## Hosting
+- Local host on DkIT server: http://mysql02.comp.dkit.ie/D00183971/wp_ca4_clarkeConor_cunninghamAisling/
+- Remote host on 000 webhost server:http://wp-ca4-clarkeconor-cunninghamaisling.000webhostapp.com/ (Pages that are not dependent on database are displaying - There is an issue with database file)

@@ -32,7 +32,7 @@ There was some features which I would have wished to implement if I had more tim
 1. Get cart working through ajax
 
 ## Application
-![My Site](./assets/images/login.jpeg)
+![My Site](./assets/images/login.jpg)
 
 
 ## References

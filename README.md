@@ -32,8 +32,16 @@ There was some features which I would have wished to implement if I had more tim
 1. Get cart working through ajax
 
 ## Application
-![My Site](./assets/images/login.jpg)
-![My Site](./assets/images/loggedin.jpg)
+- The home screen that exisitng and non existing users will be able to view
+![My Site](./assets/images/home.jpg)
+- Logged in users will get these options on products
+![My Site](./assets/images/products.jpg)
+- The admin menu can only be accessed by a logged in admin
+![My Site](./assets/images/adminmenu.jpg)
+- Admin will get all the options below for products
+![My Site](./assets/images/adminproducts.jpg)
+- Admin will be able to control users
+![My Site](./assets/images/adminusers.jpg)
 
 
 ## References

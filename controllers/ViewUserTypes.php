@@ -2,19 +2,18 @@
   
   $req->sessionStart();
   $admin = $req->session("Admin");
-  if($admin)
-  {
+  if($admin) {
   $db = \Rapid\Database::getPDO();
   require('./models/UserType.php');
   $userTypes = UserType::findAll($db);
   $res->render('main', 'view-userTypes', [
-      'pageTitle' => 'View User Types',
-      'viewAllUserTypes' => $userTypes
-  ]);
-}
-  else
-  {
+    'pageTitle' => 'View User Types',
+    'viewAllUserTypes' => $userTypes
+    ]);
+  }
+
+  else {
     $res->render('main', '404', []);
   }
   
-  } ?>
+} ?>

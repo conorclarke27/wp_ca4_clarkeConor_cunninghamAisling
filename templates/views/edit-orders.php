@@ -20,7 +20,7 @@
     <form action='' method='post'>
         <div class="col-sm-8">
             <label for='user_id'>User ID:</label>
-            <input type='text' id='user_id' name='user_id' value='<?= $order->getUserID(); ?>'class="form-control">
+            <input type='text' id='user_id' name='user_id' value='<?= $order->getUserID() ?>'class="form-control">
         </div>
         <div  class="col-sm-8">
             <label for="coffee_id">Coffee Name:</label>
@@ -42,7 +42,17 @@
   </div>
 </div>
 </div>
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <?php foreach($locals['form_error_messages'] as $errors) { ?>
+    <p><?= $errors ?></p>
+  <?php } ?>
 </div>
+
 </body>
     
 </html>

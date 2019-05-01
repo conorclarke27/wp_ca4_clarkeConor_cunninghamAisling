@@ -16,7 +16,7 @@
   }
   else if(!($user === NULL))
   {
-    $orders= Order::findAllByUserID($_SESSION['Id'],$user);
+    $orders= Order::findAllByUserID($db,$user);
 
   $res->render('main', 'view-orders', [
       'pageTitle' => 'View Orders',

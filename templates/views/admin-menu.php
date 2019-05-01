@@ -8,6 +8,7 @@
         <p class="card-text"><a href="<?= SITE_BASE_DIR ?>/view-coffees">Manage Products</p></a>
         <p class="card-text"><a href="<?= SITE_BASE_DIR ?>/add-userTypes">Add User Types</p></a>
         <p class="card-text"><a href="<?= SITE_BASE_DIR ?>/view-userTypes">Manage User Types</p></a>
+        <p class="card-text"><a href="<?= SITE_BASE_DIR ?>/view-orders">Manage Orders</p></a>
       </div>
 </div>
 </div>
